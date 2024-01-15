@@ -1,0 +1,93 @@
+---
+import EvenColumns from "../components/EvenColumns.astro";
+import FormField from "../components/Forms/FormField.astro";
+import FormSubmit from "../components/Forms/FormSubmit.astro";
+import NetlifyForm from "../components/Forms/NetlifyForm.astro";
+import Heading from "../components/Heading/H1.astro";
+import TextFlow from "../components/TextFlow.astro";
+import Wrapper from "../components/Wrapper.astro";
+import { ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+---
+
+<BaseLayout
+    lang="en"
+    title="Contact"
+    description="Tenetur culpa ab ipsam tempora est debitis? Totam quis saepe nostrum ducimus ipsa id vitae sit."
+>
+
+    <Heading>
+        Contact Us
+    </Heading>
+
+    <section>
+        <Wrapper width="max" padding="both">
+            <EvenColumns class="gap-8">
+
+                <NetlifyForm name="Astro Starter Contact Form">
+                    
+                    <FormField name="Name" type="text" required />
+
+                    <FormField name="Email" type="email" required />
+
+                    <FormField name="Phone Number" type="tel" />
+
+                    <FormField type="select" name="Subject" required>
+
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="Basic Site">Basic Site</option>
+                        <option value="Custom Site">Custom Site</option>
+    
+                    </FormField>
+
+                    <FormField name="Message" type="textarea" required />
+
+                    <FormSubmit />
+
+                </NetlifyForm>
+
+                <div class="bg-gradient-to-t from-primary-200 to-primary-50 p-6 rounded-3xl">
+                    <TextFlow>
+
+                        <h2>
+                            We would love to hear from you!
+                        </h2>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel impedit nim iste laborum quia deleniti fuga doloremque adipisci cum quisquam.</p>
+
+                        <h3 class="border-t border-primary-700 pt-2">
+                            Our Location
+                        </h3>
+                        <p class="mt-0">
+                            {ADDRESS}
+                        </p>
+
+                        <h3 class="border-t border-primary-700 pt-2">
+                            Contact Us
+                        </h3>
+                        <p class="mt-0">
+                            {EMAIL_ADDRESS} <br />
+                            {PHONE_NUMBER}
+                        </p>
+
+                        <h3 class="border-t border-primary-700 pt-2">
+                        Social Media
+                        </h3>
+                        <p class="mt-0">
+
+                            FB IN TK LN 
+                        </p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel impedit nim iste laborum quia deleniti fuga doloremque adipisci cum quisquam.</p>
+
+                    </TextFlow>
+
+                </div>
+
+            </EvenColumns>
+        </Wrapper>
+    </section>
+
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { LOGO_NAME} from '../config';
+
+interface Props {
+
+    class? : string,
+
+    /**
+     * none
+     */
+    props? : true
+}
+
+const { 
+    class: className,
+} = Astro.props
+---
+
+<a href="/" class="font-theme text-sm sm:text-md md:text-lg">
+    <div class:list={['relative after:absolute after:bottom-0 after:left-6 after:right-6 after:h-[1px] after:bg-primary-600', className]}>
+    
+        {LOGO_NAME}
+
+    </div>
+</a>    
+
+
+
+<style>
+
+div {
+    display : flex;
+    align-items: center;
+    gap : 0.5rem;
+    stroke: var(--nav-bar-logo-color);
+}
+
+</style>

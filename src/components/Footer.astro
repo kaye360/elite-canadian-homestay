@@ -1,0 +1,107 @@
+---
+import Wrapper from "./Wrapper.astro";
+import EvenColumns from "./EvenColumns.astro";
+import Logo from "./Logo.astro";
+import { CONTACT_LINKS, PAGES, SITE_FULL_NAME } from "../config";
+import TextFlow from "./TextFlow.astro";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<'footer'> {}
+const {...rest} = Astro.props
+---
+
+<footer {...rest}>
+    <Wrapper padding="inline" width="max">
+        <EvenColumns props class="gap-x-36 gap-y-12">
+
+            <div class="px-8">
+                <Logo />
+
+                <TextFlow class="mt-4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
+                    <p>Odit, libero. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </TextFlow>
+            </div>
+
+            <EvenColumns class="gap-y-12 gap-x-6 bg-primary-100 px-8 py-6 col-span-2">
+
+                <nav>
+                    <h2>Links</h2>
+                    <ul>
+                        { PAGES.map( (page) => ( 
+                            page.group.includes('footer') && <li><a href={page.path}>{page.title}</a></li>
+                        ))}
+                    </ul>
+                </nav>
+
+                <nav>
+                    <h2>Services</h2>
+                    <ul>
+                        { PAGES.map( (page) => ( 
+                            page.group.includes('services') && <li><a href={page.path}>{page.title}</a></li>
+                        ))}
+                    </ul>
+                </nav>
+                
+                <nav>
+                    <h2>Contact</h2>
+                    <ul>
+                        { CONTACT_LINKS.map( (link) => ( 
+                            <li>
+                                {link.path ? (
+                                    <a href={link.path}>{link.title}</a>
+                                ) : (
+                                    link.title 
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+            </EvenColumns>
+
+        </EvenColumns>
+
+        <div class="text-center pt-16">
+            &copy; <span id="footer-date">2023</span> {SITE_FULL_NAME}
+        </div>
+    </Wrapper>
+</footer>
+
+
+<style>
+
+footer {
+    padding-block : 6rem;
+    background : linear-gradient(
+        -45deg,
+        var(--footer-bg-color-from),
+        var(--footer-bg-color-to)
+    );
+    color: var(--footer-text-color);
+}
+
+h2 {
+    margin-bottom : 1.5rem !important;
+    padding-bottom: 5px;
+    font-size : 1.5rem !important;
+    border-bottom: 5px solid hsl( var(--primary-color) 80% );
+}
+
+ul {
+    display : grid;
+    gap : 1rem;
+}
+
+li {
+    display : flex;
+    align-items: center;
+    gap : 0.5rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+</style>
+

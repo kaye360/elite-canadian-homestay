@@ -1,0 +1,129 @@
+---
+import Button from "../components/Button.astro";
+import Cards from "../components/Card/Cards.astro";
+import FormField from "../components/Forms/FormField.astro";
+import FormSubmit from "../components/Forms/FormSubmit.astro";
+import Heading from "../components/Heading/H1.astro";
+import H2 from "../components/Heading/H2.astro";
+import H3 from "../components/Heading/H3.astro";
+import H4 from "../components/Heading/H4.astro";
+import H5 from "../components/Heading/H5.astro";
+import H6 from "../components/Heading/H6.astro";
+import TextFlow from "../components/TextFlow.astro";
+import Wrapper from "../components/Wrapper.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+---
+
+<BaseLayout title="Component examples" lang="en" description="">
+
+    <Heading>
+        Component Examples
+    </Heading>
+
+
+
+    <section>
+        <Wrapper width="max" padding="both">
+
+            <H2 class="mb-8">Buttons</H2>
+
+            <Cards>
+                <Button variant="outline-primary" icon="explore">Hello</Button>
+                <Button href="/hello" variant="outline-secondary" icon="add">These</Button>
+                <Button variant="outline-tertiary" icon="phone">Are Some</Button>
+                <Button variant="fill-primary">Buttons using</Button>
+                <Button variant="fill-secondary">A Button</Button>
+                <Button variant="fill-tertiary">Component</Button>
+            </Cards>
+
+
+        </Wrapper>
+    </section>
+
+
+
+
+    <section>
+        <Wrapper width="max" padding="both">
+
+            <H2 class="mb-8">Headings</H2>
+
+            <TextFlow class="max-w-2xl">
+
+                <H2>Heading Two</H2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus, labore, asperiores, delectus ea laboriosam molestiae cumque ab voluptate est officia harum non consequatur dolorum quibusdam repellat vel earum. Dicta facere ad ipsum nulla rem nihil, quia odio dolores </p>
+                <p>nisi est consectetur itaque nobis atque consequuntur quae dolorem numquam sunt. Commodi dolor quo quae! Ducimus aspernatur sint ea alias nisi vero excepturi reiciendis, ipsum mollitia recusandae incidunt voluptates quasi tempora aliquid Nexercitationem dolor atque expedita autem commodi</p>
+                
+                <H3>Heading Three</H3>
+                <p>Sapiente quo magnam! Accusantium perferendis corrupti nulla, maxime qui aperiam velit hic laborum reprehenderit facere aspernatur vel consectetur! Laudantium, cum a. Labore vero ratione deleniti consequuntur eligendi harum itaque, id ipsum ad eos totam corporis</p>
+                <p>Libero eveniet explicabo repellat, iure, a ullam quas vel ea. Quo ratione perferendis suscipit ex recusandae ipsum illum odio dignissimos adipisci provident totam repudiandae, autem deleniti nihil hic debitis dolores. Delectus doloribus officiis nesciunt natus ratione facere at!</p>
+                
+                <H4>Heading Four</H4>
+                <p>Quis aut modi reprehenderit magni. Id fugiat temporibus totam similique dicta consequuntur inventore sequi obcaecati voluptates! Enim mollitia inventore rerum quisquam qui doloremque. Ratione voluptatum temporibus cum sequi obcaecati unde eos minima dicta, odit, laborum sunt nostrum quod distinctio earum adipisci exercitationem corrupti vel a cumque sint dolor quibusdam assumenda!</p>
+
+                <H5>Heading Five</H5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus, labore, asperiores, delectus ea laboriosam molestiae cumque ab voluptate est officia harum non consequatur dolorum quibusdam repellat vel earum. Dicta facere ad ipsum nulla rem nihil, quia odio dolores </p>
+                <p>nisi est consectetur itaque nobis atque consequuntur quae dolorem numquam sunt. Commodi dolor quo quae! Ducimus aspernatur sint ea alias nisi vero excepturi reiciendis, ipsum mollitia recusandae incidunt voluptates quasi tempora aliquid Nexercitationem dolor atque expedita autem commodi</p>
+
+                <H6>Heading Six</H6>
+                <p>Sapiente quo magnam! Accusantium perferendis corrupti nulla, maxime qui aperiam velit hic laborum reprehenderit facere aspernatur vel consectetur! Laudantium, cum a. Labore vero ratione deleniti consequuntur eligendi harum itaque, id ipsum ad eos totam corporis</p>
+                <p>Libero eveniet explicabo repellat, iure, a ullam quas vel ea. Quo ratione perferendis suscipit ex recusandae ipsum illum odio dignissimos adipisci provident totam repudiandae, autem deleniti nihil hic debitis dolores. Delectus doloribus officiis nesciunt natus ratione facere at!</p>
+
+            </TextFlow>
+
+
+        </Wrapper>
+
+    </section>
+
+
+
+    <section>
+        <Wrapper width="max" padding="both">
+
+            <H2 class="mb-8">Forms</H2>
+
+            
+            <form class="grid gap-8">
+    
+                <FormField props type="text" name="Name" label="Your Full Name" required floatingLabel />
+
+                <FormField type="select" name="Subject" required>
+
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Landing Page">Landing Page</option>
+                    <option value="Basic Site">Basic Site</option>
+                    <option value="Custom Site">Custom Site</option>
+
+                </FormField>
+    
+                <FormField type="email" name="Email" required floatingLabel />
+    
+                <FormField type="date" name="Date" floatingLabel />
+
+                <FormField type="color" name="Pick a Color" />
+
+                <FormField type="textarea" name="Message" required floatingLabel />
+    
+                <div>
+                    <FormField type="checkbox" name="Checkbox1" label="Checkbox One" />
+                    <FormField type="checkbox" name="Checkbox2" label="Checkbox Two" />
+                    <FormField type="checkbox" name="Checkbox3" label="Checkbox Three" />
+                </div>
+    
+                <div>
+                    <FormField type="radio" name="radio" label="Radio One" />
+                    <FormField type="radio" name="radio" label="Radio Two" />
+                    <FormField type="radio" name="radio" label="Radio Three" />
+                </div>
+    
+                <FormSubmit />
+    
+            </form>
+        </Wrapper>
+
+    </section>
+
+
+</BaseLayout>
