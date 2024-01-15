@@ -100,81 +100,81 @@ const Element = attrs.href ? 'a' : 'button'
 <style>
 
 .btn {
-    border-color : var(--border-color);
-    color : var(--text-color);
-    background-color: var(--background-color, #fff);
+    border-color : var(--border-color) !important;
+    color : var(--text-color) !important;
+    background-color: var(--background-color, #fff) !important;
 }
 
 .btn:hover, .btn:focus {
-    border-color : var(--border-hover-color);
-    background-color: var(--background-hover-color);
+    border-color : var(--border-hover-color) !important;
+    background-color: var(--background-hover-color) !important;
 }
 
 .btn-outline-primary {
-    --border-color : hsl( var(--primary-color), 60% );
-    --border-hover-color : hsl( var(--primary-color), 20% );
-    --background-color : transparent;
-    --text-color : hsl( var(--primary-color), 30% );
+    --border-color : hsl( var(--primary-color), 60% ) !important;
+    --border-hover-color : hsl( var(--primary-color), 20% ) !important;
+    --background-color : transparent !important;
+    --text-color : hsl( var(--primary-color), 30% ) !important;
 }
 
 .btn-outline-secondary {
-    --border-color : hsl( var(--secondary-color), 30% );
-    --border-hover-color : hsl( var(--secondary-color), 40% );
-    --background-color : hsl( var(--secondary-color), 95% );
-    --background-hover-color : hsl( var(--secondary-color), 95%, 0.8 );
-    --text-color :  hsl( var(--secondary-color), 30% );
+    --border-color : hsl( var(--secondary-color), 30% ) !important;
+    --border-hover-color : hsl( var(--secondary-color), 40% ) !important;
+    --background-color : hsl( var(--secondary-color), 95% ) !important;
+    --background-hover-color : hsl( var(--secondary-color), 95%, 0.8 ) !important;
+    --text-color :  hsl( var(--secondary-color), 30% ) !important;
 }
 
 .btn-outline-tertiary {
-    --border-color : hsl( var(--tertiary-color), 60% );
-    --border-hover-color : hsl( var(--tertiary-color), 30% );
-    --background-color : transparent;
-    --text-color :  hsl( var(--tertiary-color), 40% );
+    --border-color : hsl( var(--tertiary-color), 60% ) !important;
+    --border-hover-color : hsl( var(--tertiary-color), 30% ) !important;
+    --background-color : transparent !important;
+    --text-color :  hsl( var(--tertiary-color), 40% ) !important;
 }
 
 .btn-fill-primary {
-    --border-color : hsl( var(--primary-color), 30% );
-    --border-hover-color : hsl( var(--primary-color), 50% );
-    --text-color : hsl( var(--primary-color), 95% );
-    --background-color : hsl( var(--primary-color), 30% );
-    --background-hover-color : hsl( var(--primary-color), 50% );
+    --border-color : hsl( var(--primary-color), 30% ) !important;
+    --border-hover-color : hsl( var(--primary-color), 50% ) !important;
+    --text-color : hsl( var(--primary-color), 95% ) !important;
+    --background-color : hsl( var(--primary-color), 30% ) !important;
+    --background-hover-color : hsl( var(--primary-color), 50% ) !important;
 }
 
 .btn-fill-secondary {
-    --border-color : hsl( var(--secondary-color), 50% );
-    --border-hover-color : hsl( var(--secondary-color), 60% );
-    --text-color : hsl( var(--secondary-color), 95% );
-    --background-color : hsl( var(--secondary-color), 50% );
-    --background-hover-color : hsl( var(--secondary-color), 60% );
+    --border-color : hsl( var(--secondary-color), 50% ) !important;
+    --border-hover-color : hsl( var(--secondary-color), 60% ) !important;
+    --text-color : hsl( var(--secondary-color), 95% ) !important;
+    --background-color : hsl( var(--secondary-color), 50% ) !important;
+    --background-hover-color : hsl( var(--secondary-color), 60% ) !important;
 }
 
 .btn-fill-tertiary {
-    --border-color : hsl( var(--tertiary-color), 40% );
-    --border-hover-color : hsl( var(--tertiary-color), 60% );
-    --text-color : hsl( var(--tertiary-color), 95% );
-    --background-color : hsl( var(--tertiary-color), 40% );
-    --background-hover-color : hsl( var(--tertiary-color), 60% );
+    --border-color : hsl( var(--tertiary-color), 40% ) !important;
+    --border-hover-color : hsl( var(--tertiary-color), 60% ) !important;
+    --text-color : hsl( var(--tertiary-color), 95% ) !important;
+    --background-color : hsl( var(--tertiary-color), 40% ) !important;
+    --background-hover-color : hsl( var(--tertiary-color), 60% ) !important;
 }
 
 .btn-plain-primary {
-    --border-color : transparent;
+    --border-color : transparent !important;
     --border-hover-color : hsl( var(--primary-color), 50% ) ; 
-    --background-color : transparent;
-    --text-color : hsl( var(--primary-color), 50% );
+    --background-color : transparent !important;
+    --text-color : hsl( var(--primary-color), 50% ) !important;
 }   
 
 .btn-plain-secondary {
-    --border-color : transparent;
+    --border-color : transparent !important;
     --border-hover-color : hsl( var(--secondary-color), 50% ) ; 
-    --background-color : transparent;
-    --text-color : hsl( var(--secondary-color), 50% );
+    --background-color : transparent !important;
+    --text-color : hsl( var(--secondary-color), 50% ) !important;
 }   
 
 .btn-plain-tertiary {
-    --border-color : transparent;
+    --border-color : transparent !important;
     --border-hover-color : hsl( var(--tertiary-color), 50% ) ; 
-    --background-color : transparent;
-    --text-color : hsl( var(--tertiary-color), 50% );
+    --background-color : transparent !important;
+    --text-color : hsl( var(--tertiary-color), 50% ) !important;
 }   
 
 </style>
