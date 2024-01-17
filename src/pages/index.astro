@@ -1,5 +1,9 @@
 ---
+import Button from '../components/Button.astro';
+import CallToActionBanner from '../components/CallToActionBanner.astro';
 import Hero from '../components/Hero.astro';
+import TextFlow from '../components/TextFlow.astro';
+import Wrapper from '../components/Wrapper.astro';
 import HomeLayout from '../layouts/HomeLayout.astro';
 
 ---
@@ -13,7 +17,110 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	<Hero />
 
 
+	<section>
+		<Wrapper width='max' padding='both'>
 
+			<TextFlow>
+				<h2>Welcome To Elite Canadian Homestay</h2>
+				<p>
+					Welcome to Elite Canadian Homestay, your gateway to a rich cultural experience in Vancouver, BC! Nestled in the heart of Canada's west coast, we specialize in creating a warm and welcoming environment for ESL students. Connecting individuals with local families, we go beyond accommodation, providing an authentic Canadian experience.
+				</p>
+				<Button href="/about" variant='fill-secondary' icon='arrow_circle_right'>
+					Learn More
+				</Button>
+			</TextFlow>
+
+		</Wrapper>
+	</section>
+
+
+	<section>
+		<Wrapper width='max' padding='both' class='grid grid-cols-2'>
+			<div>Image</div>
+			<div>
+				<h2>Why choose Elite Canadian Homestay?</h2>
+				<p>
+					Whether you're a student seeking an immersive ESL experience or a generous host family eager to open your home to global learners, here is what we offer:
+				</p>
+				<ul>
+					<li>
+						Cultural Enrichment: Immerse yourself in the rich tapestry of Vancouver's diverse culture.
+					</li>
+					<li>
+						Tailored ESL Support: Benefit from personalized ESL support within the comfort of a welcoming home.
+					</li>
+					<li>
+						Safety and ComfortOur meticulous screening process ensures that host families are reliable and caring, creating a secure environment for students to thrive in their studies and exploration of Vancouver.
+					</li>
+					<li>
+						Local Insights: Our host families, deeply rooted in the local community, offer valuable insights into the city's hidden gems.
+					</li>
+					<li>
+						Memorable Experiences: Create lasting memories that extend beyond the classroom, ensuring that your time in Vancouver is nothing short of extraordinary.
+					</li>
+				</ul>
+
+				<Button href="/register" variant='fill-secondary' icon="how_to_reg">
+					Register Today
+				</Button>
+			</div>
+		</Wrapper>
+	</section>
+
+
+	<section>
+		<Wrapper width='max' padding='both'>
+			<TextFlow>
+				<h2>Discover Vancouver and the Surrounding areas</h2>
+				<p>
+					Nestled between the Pacific Ocean and the Coast Mountain Range, Vancouver seamlessly blends urban living with breath-taking natural beauty. Surrounded by snow-capped mountains and lush greenery, the city offers stunning views at every turn.
+				</p>
+				<p>
+					From the iconic Stanley Park, with its scenic seawalls and dense forests, to the proximity of ocean vistas and mountainous terrain, Vancouver's unique geography makes it a haven for those seeking a harmonious connection with nature. The city's commitment to preserving its natural splendor is evident, making Vancouver not just a place to live but a destination where residents and visitors alike can immerse themselves in the awe-inspiring beauty that defines this coastal metropolis.
+				</p>
+			</TextFlow>
+
+			Image Image Image Image
+
+			<TextFlow>
+				<h2>Learn English as a second language with the best</h2>
+				<p>
+					Elite Canadian Homestay is the top ESL homestay company in Vancouver, BC, offering an immersive cultural experience for students and host families. Our carefully matched host families go beyond providing accommodation, fostering a supportive environment for language development and academic success. Safety is paramount, with a thorough screening process ensuring reliable and caring host families.
+				</p>
+				<p>
+					We prioritize creating memorable experiences, seamlessly integrating students into the local community for cultural events and exploration. Choose Elite Canadian Homestay for a transformative ESL experience that combines academic growth with cultural immersion in the stunning setting of Vancouver, BC.
+				</p>
+				<Button href="/register" variant='fill-secondary' icon="how_to_reg">
+					Register Today
+				</Button>
+			</TextFlow>
+		</Wrapper>
+	</section>
+
+
+	<section>
+		<Wrapper width='max' padding='both'>
+			<h2>Some kind Words from our Students and Families</h2>
+		</Wrapper>
+	</section>
+
+
+
+	<section>
+		<Wrapper width='max' padding='both'>
+			image
+		</Wrapper>
+	</section>
+
+
+	<section>
+		<Wrapper width='max' padding='both'>
+			<h2>Who we are</h2>
+		</Wrapper>
+	</section>
+
+
+	<CallToActionBanner />
 
 
 </HomeLayout>

@@ -1,0 +1,22 @@
+---
+const { title, description, href } = Astro.props
+---
+
+<div class="grid grid-cols-[70px_1fr] gap-2">
+
+    <slot name="icon" />
+
+    <div class="grid gap-2">
+
+        <h2 class="text-primary-200 text-2xl font-bold">{title}</h2>
+    
+        <p class="">
+            {description}
+        </p>
+    
+        <a href={'/' + href} class="inline-block underline hover:text-secondary-300">Learn More</a>
+
+    </div>
+
+        
+</div>
