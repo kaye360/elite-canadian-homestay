@@ -2,13 +2,14 @@
 import type { HTMLAttributes } from 'astro/types';
 import { PAGES, CTAPath, type Page } from '../../config';
 import Button from '../Button.astro';
+import Icon from '../Icon.astro';
 
 
 
 interface Props extends HTMLAttributes<'a'> {
     
     /** Material icon string for icon */
-    icon? : string
+    icon : string
 
     class? : string,
 
@@ -34,9 +35,10 @@ const cta = PAGES.find(page => page.path === CTAPath) as Page
 ---
 
 
-<Button variant="fill-primary" href={cta.path} {icon} class:list={['text-sm md:text-md px-2 py-1', className]}>
+<a href={cta.path} class:list={['flex items-center gap-2 rounded-lg text-sm md:text-md px-2 py-1', className]}>
+    <Icon icon={icon} />
     {cta.title}
-</Button>
+</a>
 
 
 
