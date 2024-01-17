@@ -1,14 +1,40 @@
 ---
+import Button from "./Button.astro";
+import TextFlow from "./TextFlow.astro";
 import Wrapper from "./Wrapper.astro";
-
+import Image from "./Image.astro";
 
 ---
 
 
-<section class="bg-primary-800 text-primary-100">
+<section class="bg-primary-800 text-primary-100 my-24">
 
-    <Wrapper width="max" padding="both">
-        Hello
+    <Wrapper width="max" padding="inline" class="" class="relative">
+
+        <TextFlow class="py-12 md:w-1/2">
+            <h2 class="text-3xl font-bold">
+                Start Your homestay adventure today
+            </h2>
+
+            <p>
+                Embark on a life-changing journey with our host family program! Students and host families, open your hearts and homes to international students. Join our community of cultural exchange and create lasting connections.
+            </p>
+
+            <Button href="/register" variant='fill-secondary' icon="how_to_reg" class="w-fit">
+                Register Today
+            </Button>
+            
+        </TextFlow>
+
+        <div class="md:absolute md:-top-12 md:-bottom-12 md:right-0 md:left-[55%] md:overflow-hidden">
+            <Image
+                src="/img/girls-laptop.webp"
+                alt="Students on a laptop"
+                width={854}
+                height={569}
+                class="w-full h-full object-cover"
+            />
+        </div>
 
     </Wrapper>
 

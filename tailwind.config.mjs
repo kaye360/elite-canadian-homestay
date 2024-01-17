@@ -12,6 +12,7 @@ export default {
 					25  : "hsl( var(--primary-color) 97% / <alpha-value> )",
 					50  : "hsl( var(--primary-color) 95% / <alpha-value> )",
 					100 : "hsl( var(--primary-color) 90% / <alpha-value> )",
+					150 : "hsl( var(--primary-color) 85% / <alpha-value> )",
 					200 : "hsl( var(--primary-color) 80% / <alpha-value> )",
 					300 : "hsl( var(--primary-color) 70% / <alpha-value> )",
 					400 : "hsl( var(--primary-color) 60% / <alpha-value> )",

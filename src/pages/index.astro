@@ -1,10 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '../components/Button.astro';
 import CallToActionBanner from '../components/CallToActionBanner.astro';
+import H2 from '../components/Heading/H2.astro';
 import Hero from '../components/Hero.astro';
 import TextFlow from '../components/TextFlow.astro';
 import Wrapper from '../components/Wrapper.astro';
 import HomeLayout from '../layouts/HomeLayout.astro';
+import LiCheckMark from '../components/LiCheckMark.astro';
 
 ---
 
@@ -17,15 +20,15 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	<Hero />
 
 
-	<section>
-		<Wrapper width='max' padding='both'>
+	<section class="my-12 bg-[url(/img/group-canada.webp)] bg-cover bg-blend-screen bg-primary-150">
+		<Wrapper width='text' padding='both' class='text-center'>
 
-			<TextFlow>
-				<h2>Welcome To Elite Canadian Homestay</h2>
-				<p>
+			<TextFlow class="font-semibold">
+				<H2 class='after:left-24 after:right-24'>Welcome To Elite Canadian Homestay</H2>
+				<p class="px-4">
 					Welcome to Elite Canadian Homestay, your gateway to a rich cultural experience in Vancouver, BC! Nestled in the heart of Canada's west coast, we specialize in creating a warm and welcoming environment for ESL students. Connecting individuals with local families, we go beyond accommodation, providing an authentic Canadian experience.
 				</p>
-				<Button href="/about" variant='fill-secondary' icon='arrow_circle_right'>
+				<Button href="/about" variant='fill-secondary' icon='arrow_circle_right' class="max-w-[400px]">
 					Learn More
 				</Button>
 			</TextFlow>
@@ -34,44 +37,59 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	</section>
 
 
-	<section>
-		<Wrapper width='max' padding='both' class='grid grid-cols-2'>
-			<div>Image</div>
-			<div>
-				<h2>Why choose Elite Canadian Homestay?</h2>
+	<section class="my-12">
+		<Wrapper width='max' padding='both' class='grid md:grid-cols-2 gap-8'>
+
+			<TextFlow>
+				<H2>Why choose Elite Canadian Homestay?</H2>
 				<p>
 					Whether you're a student seeking an immersive ESL experience or a generous host family eager to open your home to global learners, here is what we offer:
 				</p>
-				<ul>
-					<li>
+				<ul class="grid gap-4">
+					<LiCheckMark>
 						Cultural Enrichment: Immerse yourself in the rich tapestry of Vancouver's diverse culture.
-					</li>
-					<li>
+					</LiCheckMark>
+
+					<LiCheckMark>
 						Tailored ESL Support: Benefit from personalized ESL support within the comfort of a welcoming home.
-					</li>
-					<li>
+					</LiCheckMark>
+
+					<LiCheckMark>
 						Safety and ComfortOur meticulous screening process ensures that host families are reliable and caring, creating a secure environment for students to thrive in their studies and exploration of Vancouver.
-					</li>
-					<li>
+					</LiCheckMark>
+
+					<LiCheckMark>
 						Local Insights: Our host families, deeply rooted in the local community, offer valuable insights into the city's hidden gems.
-					</li>
-					<li>
+					</LiCheckMark>
+
+					<LiCheckMark>
 						Memorable Experiences: Create lasting memories that extend beyond the classroom, ensuring that your time in Vancouver is nothing short of extraordinary.
-					</li>
+					</LiCheckMark>
 				</ul>
 
 				<Button href="/register" variant='fill-secondary' icon="how_to_reg">
 					Register Today
 				</Button>
+			</TextFlow>
+
+			<div class="relative">
+				<Image
+					src="/img/group-statue.webp"
+					alt="A group of students in front of a famous Vancouver statue"
+					width={850}
+					height={600}
+					class='sticky top-32'
+				/>
 			</div>
+
 		</Wrapper>
 	</section>
 
 
-	<section>
-		<Wrapper width='max' padding='both'>
+	<section class="bg-primary-100 py-24">
+		<Wrapper width='text' padding='inline'>
 			<TextFlow>
-				<h2>Discover Vancouver and the Surrounding areas</h2>
+				<H2>Discover Vancouver and the Surrounding areas</H2>
 				<p>
 					Nestled between the Pacific Ocean and the Coast Mountain Range, Vancouver seamlessly blends urban living with breath-taking natural beauty. Surrounded by snow-capped mountains and lush greenery, the city offers stunning views at every turn.
 				</p>
@@ -79,18 +97,51 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					From the iconic Stanley Park, with its scenic seawalls and dense forests, to the proximity of ocean vistas and mountainous terrain, Vancouver's unique geography makes it a haven for those seeking a harmonious connection with nature. The city's commitment to preserving its natural splendor is evident, making Vancouver not just a place to live but a destination where residents and visitors alike can immerse themselves in the awe-inspiring beauty that defines this coastal metropolis.
 				</p>
 			</TextFlow>
+		</Wrapper>
 
-			Image Image Image Image
+		<Wrapper width="max" class='grid grid-cols-2 sm:grid-cols-4 my-12'>
+
+			<Image 
+				src="/img/science-world-sm.webp"
+				alt=""
+				width={378}
+				height={320}
+			/>
+
+			<Image 
+				src="/img/bridge-sm.webp"
+				alt=""
+				width={378}
+				height={320}
+			/>
+
+			<Image 
+				src="/img/whales-sm.webp"
+				alt=""
+				width={378}
+				height={320}
+			/>
+
+			<Image 
+				src="/img/forest-sm.webp"
+				alt=""
+				width={378}
+				height={320}
+			/>
+
+		</Wrapper>
+
+		<Wrapper width='text' padding='inline'>
 
 			<TextFlow>
-				<h2>Learn English as a second language with the best</h2>
+				<H2>Learn English as a second language with the best</H2>
 				<p>
 					Elite Canadian Homestay is the top ESL homestay company in Vancouver, BC, offering an immersive cultural experience for students and host families. Our carefully matched host families go beyond providing accommodation, fostering a supportive environment for language development and academic success. Safety is paramount, with a thorough screening process ensuring reliable and caring host families.
 				</p>
 				<p>
 					We prioritize creating memorable experiences, seamlessly integrating students into the local community for cultural events and exploration. Choose Elite Canadian Homestay for a transformative ESL experience that combines academic growth with cultural immersion in the stunning setting of Vancouver, BC.
 				</p>
-				<Button href="/register" variant='fill-secondary' icon="how_to_reg">
+				<Button href="/register" variant='fill-secondary' icon="how_to_reg" class='max-w-[400px]'>
 					Register Today
 				</Button>
 			</TextFlow>
@@ -100,7 +151,11 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 	<section>
 		<Wrapper width='max' padding='both'>
-			<h2>Some kind Words from our Students and Families</h2>
+			<H2>Some kind Words from our Students and Families</H2>
+
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora error ipsum unde perferendis asperiores, suscipit molestias quibusdam vitae laborum?</p>
+
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nostrum quos odit debitis, ab iusto, voluptatibus omnis, alias porro eos eum velit inventore provident quis temporibus architecto dolores. Explicabo, voluptatibus?</p>
 		</Wrapper>
 	</section>
 
@@ -108,14 +163,60 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 	<section>
 		<Wrapper width='max' padding='both'>
-			image
+			<Image
+				src="/img/group-canada.webp"
+				alt="Group of ESL students in downtown Vancouver"
+				width={1000}
+				height={450}
+			/>
 		</Wrapper>
 	</section>
 
 
 	<section>
-		<Wrapper width='max' padding='both'>
-			<h2>Who we are</h2>
+		<Wrapper width='max' padding='both' class='grid md:grid-cols-2 gap-8'>
+
+			<TextFlow>
+				<H2>Who we are</H2>
+				<p>
+					Our team is qualified to nec ullamcorper sit amet risus nullam eget. Placerat orci nulla pellentesque dignissim enim sit amet. Augue interdum velit euismod in pellentesque massa placerat.
+				</p>
+
+				<div class="flex gap-3">
+
+					<div class="bg-primary-300 w-16 h-16 md:w-24 md:h-24 aspect-square rounded-full " />
+
+					<div class="text-primary-800">
+						<h3 class="font-bold">Louise Kaye</h3>
+						<span class="text-primary-400">Company Founder</span>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem reiciendis harum totam enim repellat nulla quisquam, dignissimos mollitia velit tempora.
+						</p>
+					</div>
+
+				</div>
+				
+				<div class="flex gap-3">
+
+					<div class="bg-primary-300 w-16 h-16 md:w-24 md:h-24 aspect-square rounded-full " />
+
+					<div class="text-primary-800">
+						<h3 class="font-bold">Louise Kaye</h3>
+						<span class="text-primary-400">Company Founder</span>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem reiciendis harum totam enim repellat nulla quisquam, dignissimos mollitia velit tempora.
+						</p>
+					</div>
+
+				</div>
+			</TextFlow>
+
+			<Image
+				src="/img/lighthouse.webp"
+				width={800}
+				height={800}
+				alt="ESL students exploring Vancouver, BC"
+			/>
 		</Wrapper>
 	</section>
 
