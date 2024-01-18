@@ -1,0 +1,16 @@
+---
+import FiveStars from "./FiveStars.astro";
+const { name, review } = Astro.props
+---
+
+<div class="grid gap-4 relative z-10 after:absolute after:right-4 after:bottom-4 md:after:-bottom-2 after:-z-10 after:text-7xl md:after:text-9xl after:text-primary-300 after:font-bold after:content-['❞']">
+    <blockquote class='p-6 bg-primary-100/75 rounded-md '>
+        {review}
+    </blockquote>
+
+    <div class="flex items-center gap-1">
+        <span class="inline-block mx-2">{name}</span>
+        <FiveStars />
+    </div>
+
+</div>

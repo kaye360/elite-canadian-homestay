@@ -8,6 +8,9 @@ import TextFlow from '../components/TextFlow.astro';
 import Wrapper from '../components/Wrapper.astro';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import LiCheckMark from '../components/LiCheckMark.astro';
+import Bio from '../components/Bio.astro';
+import FiveStars from '../components/FiveStars.astro';
+import Review from '../components/Review.astro';
 
 ---
 
@@ -153,9 +156,40 @@ import LiCheckMark from '../components/LiCheckMark.astro';
 		<Wrapper width='max' padding='both'>
 			<H2>Some kind Words from our Students and Families</H2>
 
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora error ipsum unde perferendis asperiores, suscipit molestias quibusdam vitae laborum?</p>
+			<div class="grid md:grid-cols-2 gap-x-6 gap-y-10">
 
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nostrum quos odit debitis, ab iusto, voluptatibus omnis, alias porro eos eum velit inventore provident quis temporibus architecto dolores. Explicabo, voluptatibus?</p>
+				<Review
+					name="Amanda Bell"
+					review="Hosting a student was a wonderful experience or us. Miyu has become a part of our family. We have established a strong friendship/relationship."
+				/>
+
+				<Review
+					name="Darryl Hansen"
+					review="Our student was polite and respectful and tried to be part of the family. My children benefited by appreciating another culture , who were  part of our household and learning new things was a highlight."
+				/>
+
+				<Review
+					name="Amelia Gerez"
+					review="Good experience for our family, a good chance to make new friends from another country and to be able to let my kids know different cultures."
+				/>
+
+				<Review
+					name="Koma"
+					review="I enjoyed talking a lot with my host family is one of my special experience."
+				/>
+
+				<Review
+					name="Kotoha"
+					review="I played games with my host family"
+				/>
+
+				<Review
+					name="Yume"
+					review="My special experience is watching movies with my host family."
+				/>
+
+			</div>
+
 		</Wrapper>
 	</section>
 
@@ -182,33 +216,31 @@ import LiCheckMark from '../components/LiCheckMark.astro';
 					Our team is qualified to nec ullamcorper sit amet risus nullam eget. Placerat orci nulla pellentesque dignissim enim sit amet. Augue interdum velit euismod in pellentesque massa placerat.
 				</p>
 
-				<div class="flex gap-3">
+				<Bio
+					name="Louise Kaye"
+					title="Company Founder"
+					bio="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem reiciendis harum totam enim repellat nulla quisquam, dignissimos mollitia velit tempora."
+				/>
 
-					<div class="bg-primary-300 w-16 h-16 md:w-24 md:h-24 aspect-square rounded-full " />
+				<Bio
+					name="Mary O'Reilly"
+					title="Program Coordinator"
+					bio="Been a Program Coordinator for over 10 years, Experienced in matching students with excellent, appropriate Host Families Hosted over 100 students in her own home. Has 10 children of her own and 30+ grandchildren"
+				/>
 
-					<div class="text-primary-800">
-						<h3 class="font-bold">Louise Kaye</h3>
-						<span class="text-primary-400">Company Founder</span>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem reiciendis harum totam enim repellat nulla quisquam, dignissimos mollitia velit tempora.
-						</p>
-					</div>
+				<Bio
+					name="Marilyn Cartwright"
+					title="Program Coordinator"
+					bio="Hosted students for over 10 years in her home, Enjoys extra outings and craft nights with students. Energeic, fun and outgoing. Has one daughter and 3 grandchildren"
+				/>
 
-				</div>
-				
-				<div class="flex gap-3">
+				<Bio
+					name="Zoey (Huimin) Yang"
+					title="Regional Manager, Program Coordinator"
+					bio="Hosted many students since 2018, Has twin boys currently living at home. Loves the program, excellent contact with host families via Facebook and what Whatsapp."
+				/>
 
-					<div class="bg-primary-300 w-16 h-16 md:w-24 md:h-24 aspect-square rounded-full " />
-
-					<div class="text-primary-800">
-						<h3 class="font-bold">Louise Kaye</h3>
-						<span class="text-primary-400">Company Founder</span>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem reiciendis harum totam enim repellat nulla quisquam, dignissimos mollitia velit tempora.
-						</p>
-					</div>
-
-				</div>
+			
 			</TextFlow>
 
 			<Image
@@ -220,8 +252,6 @@ import LiCheckMark from '../components/LiCheckMark.astro';
 		</Wrapper>
 	</section>
 
-
-	<CallToActionBanner />
 
 
 </HomeLayout>

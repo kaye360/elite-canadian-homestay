@@ -16,8 +16,8 @@ const {
 } = Astro.props
 ---
 
-<a href="/" class="font-theme text-md sm:text-md md:text-lg min-w-max">
-    <div class:list={['relative after:absolute after:bottom-0 after:left-6 after:right-6 after:h-[1px] after:bg-primary-600 min-w-max', className]}>
+<a href="/" class="font-theme text-md sm:text-md md:text-lg min-w-max max-w-min hover:text-secondary-500">
+    <div class:list={['relative after:absolute after:bottom-0 after:left-6 after:right-6 after:h-[1px] after:bg-primary-600 min-w-max hover:after:bg-secondary-500', className]}>
     
         {LOGO_NAME}
 

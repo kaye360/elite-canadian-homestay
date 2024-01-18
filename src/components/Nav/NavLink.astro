@@ -43,7 +43,8 @@ const megaMenuPages = !dropdown ? null : PAGES.filter( page => page.group.includ
         href={href} 
         class:list={[
             className,
-            `${isActive ? 'text-secondary-500' : ''}`
+            'flex items-center gap-3 border-b-2 border-transparent',
+            `${isActive ? 'border-primary-400' : 'hover:text-secondary-500'}`
         ]}
     >
 
@@ -54,24 +55,6 @@ const megaMenuPages = !dropdown ? null : PAGES.filter( page => page.group.includ
 
     { megaMenuPages && <MegaMenu pages={megaMenuPages} /> }
 </li>
-
-
-<style>
-
-a {
-    display : flex;
-    align-items: center;
-    gap : 0.15rem;
-    padding : 0rem 0.2rem;
-    font-weight: 300;
-    border-bottom : 2px solid transparent
-}
-
-a:hover, a:focus {
-    border-color: hsl(var(--primary-color) 50% );
-}
-
-</style>
 
 
 

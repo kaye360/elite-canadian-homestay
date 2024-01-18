@@ -1,107 +1,73 @@
 ---
 import Wrapper from "./Wrapper.astro";
-import EvenColumns from "./EvenColumns.astro";
 import Logo from "./Logo.astro";
 import { CONTACT_LINKS, PAGES, SITE_FULL_NAME } from "../config";
 import TextFlow from "./TextFlow.astro";
 import type { HTMLAttributes } from "astro/types";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 
 interface Props extends HTMLAttributes<'footer'> {}
 const {...rest} = Astro.props
 ---
 
-<footer {...rest}>
-    <Wrapper padding="inline" width="max">
-        <EvenColumns props class="gap-x-36 gap-y-12">
+<footer {...rest} class="bg-primary-100">
+    <Wrapper padding="both" width="max" class="grid gap-12 md:grid-cols-[1fr_300px]">
 
-            <div class="px-8">
-                <Logo />
+        <div class="grid gap-3 ">
+            <Logo />
+            <p>
+                First-class homestay services in Vancouver, BC, Canada
+            </p>
 
-                <TextFlow class="mt-4">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-                    <p>Odit, libero. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </TextFlow>
-            </div>
+            <Button href="/register" variant='fill-primary' icon="how_to_reg" class="max-w-fit">
+                Register Today
+            </Button>
+        </div>
 
-            <EvenColumns class="gap-y-12 gap-x-6 bg-primary-100 px-8 py-6 col-span-2">
+        <nav class="">
+            <ul class="grid gap-2">
+                { CONTACT_LINKS.map( (link) => ( 
+                    <li class="flex items-center gap-2">
+                        { link.icon && <Icon icon={link.icon} /> }
+                        {link.path ? (
+                            <a href={link.path}>{link.title}</a>
+                        ) : (
+                            link.title 
+                        )}
+                    </li>
+                ))}
+            </ul>
+        </nav>
 
-                <nav>
-                    <h2>Links</h2>
-                    <ul>
-                        { PAGES.map( (page) => ( 
-                            page.group.includes('footer') && <li><a href={page.path}>{page.title}</a></li>
-                        ))}
-                    </ul>
-                </nav>
+        <div class="h-[1px] bg-primary-600 hidden md:block md:col-span-2" />
 
-                <nav>
-                    <h2>Services</h2>
-                    <ul>
-                        { PAGES.map( (page) => ( 
-                            page.group.includes('services') && <li><a href={page.path}>{page.title}</a></li>
-                        ))}
-                    </ul>
-                </nav>
-                
-                <nav>
-                    <h2>Contact</h2>
-                    <ul>
-                        { CONTACT_LINKS.map( (link) => ( 
-                            <li>
-                                {link.path ? (
-                                    <a href={link.path}>{link.title}</a>
-                                ) : (
-                                    link.title 
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
 
-            </EvenColumns>
+        <nav>
+            <ul class="flex flex-wrap md:flex-nowrap items-center gap-4">
+                { PAGES.map( (page) => ( 
+                    page.group.includes('footer') && <li><a href={page.path} class="hover:underline">{page.title}</a></li>
+                ))}
+                <li>
+                    <a href="https://www.facebook.com/EliteHomestay" target="_blank" class="hover:text-primary-500">
+                        <svg 
+                            width="24" 
+                            height="24" 
+                            viewBox="0 0 24 24" 
+                            fill="none"
+                        >
+                            <path d="M23.04 0H0.96C0.429 0 0 0.429 0 0.96V23.04C0 23.571 0.429 24 0.96 24H23.04C23.571 24 24 23.571 24 23.04V0.96C24 0.429 23.571 0 23.04 0ZM22.08 22.08H16.557V14.706H19.677L20.145 11.085H16.557V8.772C16.557 7.722 16.848 7.008 18.351 7.008H20.268V3.768C19.935 3.723 18.798 3.624 17.472 3.624C14.706 3.624 12.813 5.313 12.813 8.412V11.082H9.687V14.703H12.816V22.08H1.92V1.92H22.08V22.08Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-        </EvenColumns>
-
-        <div class="text-center pt-16">
+        <div class="">
             &copy; <span id="footer-date">2023</span> {SITE_FULL_NAME}
         </div>
+
     </Wrapper>
 </footer>
 
-
-<style>
-
-footer {
-    padding-block : 6rem;
-    background : linear-gradient(
-        -45deg,
-        var(--footer-bg-color-from),
-        var(--footer-bg-color-to)
-    );
-    color: var(--footer-text-color);
-}
-
-h2 {
-    margin-bottom : 1.5rem !important;
-    padding-bottom: 5px;
-    font-size : 1.5rem !important;
-    border-bottom: 5px solid hsl( var(--primary-color) 80% );
-}
-
-ul {
-    display : grid;
-    gap : 1rem;
-}
-
-li {
-    display : flex;
-    align-items: center;
-    gap : 0.5rem;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-</style>
 

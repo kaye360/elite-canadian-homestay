@@ -6,6 +6,7 @@ import MainContent from '../components/MainContent.astro';
 import Meta from '../components/Meta.astro';
 import type { Layout } from './types';
 import Header from '../components/Header.astro';
+import CallToActionBanner from '../components/CallToActionBanner.astro';
 
 
 interface Props extends Layout { }
@@ -33,6 +34,8 @@ const {
             <slot />
 
         </MainContent>
+
+		<CallToActionBanner />
 
         <Footer />
 
