@@ -82,8 +82,11 @@
     }
 
     .text-flow ul {
-        list-style: disc;
-        margin-left: 2rem;
+        @apply list-disc ml-8
+    }
+
+    main a {
+        @apply text-secondary-500 underline hover:bg-secondary-100
     }
 
 }

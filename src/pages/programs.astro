@@ -1,5 +1,14 @@
 ---
+import Card from "../components/Card/Card.astro";
+import CardContent from "../components/Card/CardContent.astro";
+import CardHeading from "../components/Card/CardHeading.astro";
+import CardImage from "../components/Card/CardImage.astro";
+import CardList from "../components/Card/CardList.astro";
+import EvenColumns from "../components/EvenColumns.astro";
 import Heading from "../components/Heading/H1.astro";
+import H2 from "../components/Heading/H2.astro";
+import TextFlow from "../components/TextFlow.astro";
+import Wrapper from "../components/Wrapper.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 ---
@@ -11,61 +20,239 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 >
 
     <Heading>
-        Our Programs
+        Our ESL Programs
     </Heading>
 
-    GROUP HOMESTAY PROGRAM -Lean English, live with a Host Family, ESL classes and activities to discover Canada at its best
-Single and double placements with a Host family who provide a private room, 3 meals a day and transportation to and from academic center
-ESL morning classes 4 times a week using Elite’s personalized text book, 1 all day excursion per week and 4 afternoon activities (except on Canadian Holidays)
-	Welcome and Farewell Parties
-	Groups of 10 to 30 students ( 1 ESL teacher and 2 buddies per 15 students )
-	Service of an Elite Program Coordinator
-	One free seat for a bilingual adult chaperone to accompany the group.
+    <section>
 
-    Table---
-    Sunday
-    Noon – 5 pm
-    Arrival & Welcome Party
-    Monday
-    09:00-12:00
-    12:00-13:00
-    13:00-16:00
-    ESL Class & Student Orientation
-    Sack Lunch
-    Wave Pool
-    Tuesday
-    09:00-18:30
-    Vancouver Excursion/Dinner at Spaghetti Factory
-    Wednesday
-    09:00-12:00
-    12:00-13:00
-    13:00-16:00
-    ESL Class 
-    Sack Lunch
-    Christmas In July Party
-    Thursday
-    09:00-12:00
-    12:00-13:00
-    13:00-16:00
-    ESL Class 
-    Sack Lunch
-    Visit Senior Home (Volunteer Activity)
-    Friday
-    09:00-12:00
-    12:00-13:00
-    13:00-16:00
-    ESL Class 
-    Sack Lunch
-    White Rock Pier, Peace Arch Park
-    Saturday & Sunday
-    
-    Free time with Host Families
+        <Wrapper width="max" padding="both">
 
-    --- table
+            <EvenColumns>
 
-    contact Elite Canadian Homestay for a group quote and  any question.
-Download Group Homestay Student Application (36kb pdf)
+                <TextFlow>
+                    
+                    <H2>
+                        Learn English while discovering Canada's best
+                    </H2>
 
-    
+                    <p>
+                        Explore Canada through language and culture with our Group Homestay Program. Live with a Host Family, learn English in ESL classes, and engage in curated activities that showcase the best of Canada. Join us for an enriching experience where language learning becomes a memorable adventure.
+                    </p>
+
+                </TextFlow>
+
+                <div>
+                    Image
+                </div>
+                
+            </EvenColumns>
+
+        </Wrapper>
+
+    </section>
+
+    <section>
+
+        <Wrapper width="max" padding="both">
+
+            <TextFlow>
+
+                <H2>
+                    What our ESL Programs include
+                </H2>
+
+                <CardList padding-x-md padding-b-md rounded-md>
+
+                    <Card>
+                        <CardImage
+                            src="/img/girls-laptop.webp"
+                            alt=""
+                            width={350}
+                            height={200}
+                        />
+                        <CardHeading>Accomodations</CardHeading>
+                        <CardContent>
+                            <ul>
+                                <li>Private room</li>
+                                <li>Three daily meals</li>
+                                <li>transportation to and from academic center</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardImage
+                            src="/img/girls-laptop.webp"
+                            alt=""
+                            width={350}
+                            height={200}
+                        />
+                        <CardHeading>ESL education</CardHeading>
+                        <CardContent>
+                            <ul>
+                                <li>ESL morning classes 4 times a week</li>
+                                <li>Elite's personalized textbook</li>
+                                <li>Dedicated service of an Elite Program Coordinator</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardImage
+                            src="/img/girls-laptop.webp"
+                            alt=""
+                            width={350}
+                            height={200}
+                        />
+                        <CardHeading>Events and activities</CardHeading>
+                        <CardContent>
+                            <ul>
+                                <li>1 all-day excursion per week</li>
+                                <li>4 afternoon activities (excluding Canadian Holidays)</li>
+                                <li>Groups of 10 to 30 students</li>
+                                <li>1 ESL teacher and 2 buddies per 15 students</li>
+                                <li>Welcome and Farewell Parties</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                    
+                </CardList>
+
+            </TextFlow>
+        </Wrapper>
+
+    </section>
+
+    <section>
+
+        <Wrapper width="max" padding="inline" class="">
+
+            <H2>A sample week with Elite</H2>
+
+            <table class="w-full [&_td]:p-4 [&_td]:align-text-top">
+
+                <thead class="font-bold text-lg">
+                    <tr>
+                        <td class="">Weekday</td>
+                        <td>Time</td>
+                        <td class="">Event</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr class="bg-primary-100">
+                        <td>Sunday</td>
+                        <td>Noon - 5 pm</td>
+                        <td>Arrival & Welcome Party</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" >Monday</td>
+                        <td>09:00 - 18:30</td>
+                        <td>ESL Class & Student Orientation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12:00 - 13:00</td>
+                        <td>Sack Lunch</td>
+                    </tr>
+
+                    <tr>
+                        <td>13:00 - 16:00</td>
+                        <td>Wave Pool</td>
+                    </tr>
+
+                    <tr class="bg-primary-100">
+                        <td>Tuesday</td>
+                        <td>09:00 - 18:30</td>
+                        <td>Vancouver Excursion/Dinner at Spaghetti Factory</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3">Wednesday</td>
+                        <td>09:00 - 12:00</td>
+                        <td>ESL Class</td>
+                    </tr>
+
+                    <tr>
+                        <td>09:00 - 12:00</td>
+                        <td>Sack Lunch</td>
+                    </tr>
+
+                    <tr>
+                        <td>13:00 - 16:00</td>
+                        <td>Christmas In July Party</td>
+                    </tr>
+
+                    <tr class="bg-primary-100">
+                        <td rowspan="3">Thursday</td>
+                        <td>09:00-12:00</td>
+                        <td>ESL Class</td>
+                    </tr>
+
+                    <tr class="bg-primary-100">
+                        <td>12:00 - 13:00</td>
+                        <td>Sack Lunch</td>
+                    </tr>
+
+                    <tr class="bg-primary-100">
+                        <td>13:00 - 16:00</td>
+                        <td>Visit Senior Home (Volunteer Activity)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3">Friday</td>
+                        <td>09:00 - 12:00</td>
+                        <td>ESL Class</td>
+                    </tr>
+
+                    <tr>
+                        <td>12:00 - 13:00</td>
+                        <td>Sack Lunch</td>
+                    </tr>
+
+                    <tr>
+                        <td>13:00 - 16:00</td>
+                        <td>White Rock Pier, Peace Arch Park</td>
+                    </tr>
+
+                    <tr class="bg-primary-100">
+                        <td>Saturday & Sunday</td>
+                        <td>All Day</td>
+                        <td>Free time with Host Families</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </Wrapper>
+
+    </section>
+
+    <section>
+
+        <Wrapper width="max" padding="both">
+
+            <TextFlow>
+
+                <H2>Registration information</H2>
+                <ul class="grid gap-3 max-w-md">
+                    <li>
+                        <a href="/contact">Please contact Elite Canadian Homestay</a> for a group quote or any other questions you may have.
+                    </li>
+                    <li>
+                        View registration information on the <a href="/register" class="text-secondary-500 underline">registration</a> page.
+                    </li>
+                </ul>
+
+            </TextFlow>
+
+        </Wrapper>
+
+    </section>
+
 
 </BaseLayout>
+
