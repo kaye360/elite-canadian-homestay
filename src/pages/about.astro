@@ -1,5 +1,9 @@
 ---
+import BioList from "../components/BioList.astro";
 import Heading from "../components/Heading/H1.astro";
+import H2 from "../components/Heading/H2.astro";
+import TextFlow from "../components/TextFlow.astro";
+import Wrapper from "../components/Wrapper.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 ---
@@ -10,9 +14,41 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     description="Tenetur culpa ab ipsam tempora est debitis? Totam quis saepe nostrum ducimus ipsa id vitae sit."
 >
 
-    <Heading id="hi">
+    <Heading>
         About Us
-    </Heading>
+    </HeadinG>
 
+    <section>
+        <Wrapper width="text" padding="both">
 
+            <TextFlow>
+
+                <p>
+
+                    Founded in February 1 2008 by Louise Kaye to provide international students with quality Programs and Host Families.
+Louise Kaye has over 50 years of combined experience in the Homestay business
+Elite is committed to providing you with the best possible program.
+Our vision is to create memories that will last a life time as students and host families become life long friends.
+Our staff are experienced in homestay.  We all believe in the concept of understand and friendship breaking down racial and cultural barriers to create better understanding in our world.
+We strive to place students in safe, secure quality homes while in Canada
+Our teachers are trained to provide students with ESL classes designed to make the most of their time in Canada.
+Visit us on Facebook
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio officia reprehenderit sint temporibus placeat maiores eos iste quisquam, sequi soluta odio amet non ad eaque laboriosam recusandae, nisi tempora culpa mollitia cum, velit a? Ipsam officiis optio omnis provident. Necessitatibus.
+                </p>
+
+                <H2>Who we are</H2>
+
+                <p>
+                    Our team is qualified to nec ullamcorper sit amet risus nullam eget. Placerat orci nulla pellentesque dignissim enim sit amet. Augue interdum velit euismod in pellentesque massa placerat.
+                </p>
+        
+                <BioList />
+            
+            </TextFlow>
+
+        </Wrapper>
+    </section>
 </BaseLayout>
