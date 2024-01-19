@@ -1,5 +1,7 @@
 ---
+import EvenColumns from "../components/EvenColumns.astro";
 import Heading from "../components/Heading/H1.astro";
+import H2 from "../components/Heading/H2.astro";
 import TextFlow from "../components/TextFlow.astro";
 import Wrapper from "../components/Wrapper.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -20,29 +22,62 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         <Wrapper width="max" padding="both">
 
+            <EvenColumns>
+
+                <TextFlow>
+                    <H2>Create lasting memories as a homestay host</H2>
+                    <p>
+                        Join our Short-Term Programs lasting 1-4 weeks during the summer, focusing on helping ESL students improve their English language skills and understanding of Canadian culture. Your warm welcome can create lasting memories for both you and the students seeking enriching experiences. Host Families must live in the Lower Mainland of BC, Canada.
+                    </p>
+                </TextFlow>
+
+                <div class="border border-red">Image</div>
+
+            </EvenColumns>
+
+        </Wrapper>
+
+    </section>
+
+    <section>
+
+        <Wrapper width="text" padding="both">
+
+
             <TextFlow>
-                Thank you for your interest.
-                Live in Lower mainland. 
-                Short Term Programs (1-4 weeks) in summer months. 
-                Focus to improve English and learn Canadian Culutre.
 
-                Why Should I be a Host Family?
-                Make life long friends and a new culture.
-                Meet other families in your community.
+                <H2>Why Should I be a Host Family?</H2>
+                <p>
+                    Join our host family community to meet like-minded families in your area, sharing the joy of global connections and creating lasting memories through cultural exchange. Welcome international students to forge lifelong friendships and experience new cultures. 
+                </p>
 
-                Who Can Be A Host family?
-                All families of all ethnic backgrounds, religions and cultures who represent the Canadian ‘Mosaic” culture.
-                    With or without children, and retired .
-                    Compassionate families interested in international exchange.
+                <H2>Who Can Be A Host family?</H2>
+                <p>
+                    Our Host Family Program embraces the diversity of Canadian 'Mosaic' culture and we are open to all families, regardless of ethnic backgrounds, religions, or cultures. Whether with or without children, or enjoying retirement, we welcome compassionate families interested in international exchange. Join us in fostering meaningful connections and international cultural exchange within the comfort of your home.
+                </p>
 
-                Host Family Requirements”
-                    Canadian citizens or landed immigrants with a criminal record check.
-                    English is the main language spoken in the home
-                    Provide a safe clean home with a private bedroom and 3 meals a day and internet access.
-                
-                
+                <H2>Host Family Requirements</H2>
+                <p>
+                    Are you ready to make a difference in a student's life? Join our Host Family Program by meeting the following criteria:
+                </p>
+                <ul>
+                    <li>
+                        <b>Legal Status:</b> 
+                        Canadian citizens or landed immigrants with a clear criminal record check.
+                    </li>
+                    <li>
+                        <b>Language Requirement:</b> 
+                        English should be the primary language spoken in your home.
+                    </li>
+                    <li>
+                        <b>Accommodation:</b>
+                        Provide a safe and clean home environment, offering a private bedroom,three meals a day, and internet connection.
+                    </li>
+                </ul>
 
             </TextFlow>
+
+            <div class="h-[300px] border border-red-400 my-12">Image</div>
 
         </Wrapper>
 

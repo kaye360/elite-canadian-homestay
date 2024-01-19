@@ -82,7 +82,7 @@
     }
 
     .text-flow ul {
-        @apply list-disc ml-8
+        @apply list-disc ml-8 grid gap-3
     }
 
     main a {
