@@ -4,6 +4,8 @@ import FormField from "../components/Forms/FormField.astro";
 import FormSubmit from "../components/Forms/FormSubmit.astro";
 import NetlifyForm from "../components/Forms/NetlifyForm.astro";
 import Heading from "../components/Heading/H1.astro";
+import H2 from "../components/Heading/H2.astro";
+import Icon from "../components/Icon.astro";
 import TextFlow from "../components/TextFlow.astro";
 import Wrapper from "../components/Wrapper.astro";
 import { ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER } from "../config";
@@ -25,7 +27,59 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <Wrapper width="max" padding="both">
             <EvenColumns class="gap-8">
 
-                <NetlifyForm name="Astro Starter Contact Form">
+                <div class="bg-gradient-to-t from-primary-100 to-primary-50 p-6 rounded-3xl">
+                    <TextFlow>
+
+                        <H2 class="text-lg mb-6">
+                            We would love to hear from you!
+                        </H2>
+
+                        <p>Whether you're considering becoming a host family, a prospective student, or someone with questions about our programs, we welcome the opportunity to connect with you. Please feel free to reach out to us using the form or contact details provided below. </p>
+
+                        <h3 class="border-t border-primary-700 pt-2 font-bold">
+                            Our Location
+                        </h3>
+                        <p class="mt-0 flex items-center gap-1">
+                            <Icon icon="location_on" />
+                            {ADDRESS}
+                        </p>
+
+                        <h3 class="border-t border-primary-700 pt-2 font-bold">
+                            Contact Us
+                        </h3>
+                        <p class="mt-0">
+                            <a href={'mailto:' + EMAIL_ADDRESS} class="flex items-center gap-1 no-underline w-fit">
+                                <Icon icon="mail" class=" no-underline" />
+                                {EMAIL_ADDRESS}
+                            </a>
+                            <a href={'tel:' + PHONE_NUMBER} class="flex items-center gap-1 no-underline w-fit">
+                                <Icon icon="phone" />
+                                {PHONE_NUMBER}
+                            </a>
+                        </p>
+
+                        <h3 class="border-t border-primary-700 pt-2 font-bold">
+                            Social Media
+                        </h3>
+                        <p class="mt-0">
+                            <a href="https://www.facebook.com/EliteHomestay" target="_blank" class="hover:text-secondary-500 flex items-center gap-1 w-fit no-underline">
+                                <svg 
+                                    width="24" 
+                                    height="24" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none"
+                                >
+                                    <path d="M23.04 0H0.96C0.429 0 0 0.429 0 0.96V23.04C0 23.571 0.429 24 0.96 24H23.04C23.571 24 24 23.571 24 23.04V0.96C24 0.429 23.571 0 23.04 0ZM22.08 22.08H16.557V14.706H19.677L20.145 11.085H16.557V8.772C16.557 7.722 16.848 7.008 18.351 7.008H20.268V3.768C19.935 3.723 18.798 3.624 17.472 3.624C14.706 3.624 12.813 5.313 12.813 8.412V11.082H9.687V14.703H12.816V22.08H1.92V1.92H22.08V22.08Z" fill="currentColor"/>
+                                </svg>
+                                Facebook
+                            </a>
+                        </p>
+
+                    </TextFlow>
+
+                </div>
+
+                <NetlifyForm name="Elite Canadian Homestay Contact Form">
                     
                     <FormField name="Name" type="text" required />
 
@@ -33,58 +87,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                     <FormField name="Phone Number" type="tel" />
 
-                    <FormField type="select" name="Subject" required>
-
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Landing Page">Landing Page</option>
-                        <option value="Basic Site">Basic Site</option>
-                        <option value="Custom Site">Custom Site</option>
-    
-                    </FormField>
-
                     <FormField name="Message" type="textarea" required />
 
                     <FormSubmit />
 
                 </NetlifyForm>
 
-                <div class="bg-gradient-to-t from-primary-200 to-primary-50 p-6 rounded-3xl">
-                    <TextFlow>
-
-                        <h2>
-                            We would love to hear from you!
-                        </h2>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel impedit nim iste laborum quia deleniti fuga doloremque adipisci cum quisquam.</p>
-
-                        <h3 class="border-t border-primary-700 pt-2">
-                            Our Location
-                        </h3>
-                        <p class="mt-0">
-                            {ADDRESS}
-                        </p>
-
-                        <h3 class="border-t border-primary-700 pt-2">
-                            Contact Us
-                        </h3>
-                        <p class="mt-0">
-                            {EMAIL_ADDRESS} <br />
-                            {PHONE_NUMBER}
-                        </p>
-
-                        <h3 class="border-t border-primary-700 pt-2">
-                        Social Media
-                        </h3>
-                        <p class="mt-0">
-
-                            FB IN TK LN 
-                        </p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel impedit nim iste laborum quia deleniti fuga doloremque adipisci cum quisquam.</p>
-
-                    </TextFlow>
-
-                </div>
 
             </EvenColumns>
         </Wrapper>

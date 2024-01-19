@@ -27,7 +27,7 @@ interface Props extends HTMLAttributes<'div'> {
 
 const { 
     width,
-    padding,
+    padding = 'both',
     class : className,
     ...rest
 } = Astro.props
