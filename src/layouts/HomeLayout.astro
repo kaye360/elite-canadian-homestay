@@ -7,6 +7,7 @@ import Meta from '../components/Meta.astro';
 import type { Layout } from './types';
 import Header from '../components/Header.astro';
 import CallToActionBanner from '../components/CallToActionBanner.astro';
+import Hero from '../components/Hero.astro';
 
 
 interface Props extends Layout { }
@@ -28,6 +29,8 @@ const {
 		<SkipToContent />
 
 		<Header variant='fixed' props />
+		
+		<Hero />
 		
         <MainContent>
 
