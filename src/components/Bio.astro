@@ -1,10 +1,19 @@
 ---
-const { name, title, bio } = Astro.props
+import Image from "./Image.astro"
+const { name, title, bio, avatar } = Astro.props
 ---
 
 <div class="flex gap-3">
 
-    <div class="bg-primary-300 w-16 h-16 aspect-square rounded-full " />
+    <div class="bg-primary-300 w-16 h-16 aspect-square rounded-full">
+        <Image
+            src={avatar}
+            width={64}
+            height={64}
+            alt={'Image of ' + name}
+            class="w-16 h-16 aspect-square rounded-full"
+        />
+    </div>
 
     <div class="text-primary-800">
         <h3 class="font-bold">{name}</h3>

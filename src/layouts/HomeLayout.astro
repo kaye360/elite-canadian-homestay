@@ -8,6 +8,7 @@ import type { Layout } from './types';
 import Header from '../components/Header.astro';
 import CallToActionBanner from '../components/CallToActionBanner.astro';
 import Hero from '../components/Hero.astro';
+import BackToTop from '../components/BackToTop.astro';
 
 
 interface Props extends Layout { }
@@ -41,6 +42,8 @@ const {
 		<CallToActionBanner />
 
         <Footer />
+
+		<BackToTop />
 
 		<slot name="pageEnd" />
 		

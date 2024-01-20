@@ -36,15 +36,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                         <p>Whether you're considering becoming a host family, a prospective student, or someone with questions about our programs, we welcome the opportunity to connect with you. Please feel free to reach out to us using the form or contact details provided below. </p>
 
-                        <h3 class="border-t border-primary-700 pt-2 font-bold">
-                            Our Location
-                        </h3>
-                        <p class="mt-0 flex items-center gap-1">
-                            <Icon icon="location_on" />
-                            {ADDRESS}
-                        </p>
-
-                        <h3 class="border-t border-primary-700 pt-2 font-bold">
+                        <h3 class="border-t border-primary-700 py-2 font-bold">
                             Contact Us
                         </h3>
                         <p class="mt-0">
@@ -58,7 +50,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             </a>
                         </p>
 
-                        <h3 class="border-t border-primary-700 pt-2 font-bold">
+                        <h3 class="border-t border-primary-700 py-2 font-bold">
+                            Our Location
+                        </h3>
+                        <p class="mt-0 flex items-start gap-1">
+                            <Icon icon="location_on" />
+                            {ADDRESS.street} <br />
+                            {ADDRESS.city} <br />
+                            {ADDRESS.postal_code}
+                        </p>
+
+                        <h3 class="border-t border-primary-700 py-2 font-bold">
                             Social Media
                         </h3>
                         <p class="mt-0">

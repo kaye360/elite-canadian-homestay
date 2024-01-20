@@ -6,6 +6,7 @@ import TextFlow from "../components/TextFlow.astro";
 import H2 from "../components/Heading/H2.astro";
 import Button from "../components/Button.astro";
 import Icon from "../components/Icon.astro";
+import { EMAIL_ADDRESS } from "../config";
 ---
 
 <BaseLayout props
@@ -31,12 +32,15 @@ import Icon from "../components/Icon.astro";
                 <H2>For Students</H2>
                  
                 <p>
-                    Please download the student application and send it to ?????
+                    Please download the student application and send it to 
+                    <a href={'mailto:' + EMAIL_ADDRESS}>
+                        {EMAIL_ADDRESS}
+                    </a>
                 </p>
 
                 <Button 
-                    href="/docs/student-application.pdf" 
-                    download="student-application" 
+                    href="/docs/student-application-2024.pdf" 
+                    download="student-application-2024" 
                     variant='outline-secondary' 
                     class="py-6 no-underline hover:bg-secondary-900"
                 >
@@ -46,7 +50,22 @@ import Icon from "../components/Icon.astro";
 
                 <H2>For Host Families</H2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit reprehenderit dolore ex fugit non consequuntur, corrupti error quasi natus soluta!</p>
+                <p>
+                    Please download the host Family application and send it to 
+                    <a href={'mailto:' + EMAIL_ADDRESS}>
+                        {EMAIL_ADDRESS}
+                    </a>
+                </p>
+
+                <Button 
+                    href="/docs/host-family-application-2024.pdf" 
+                    download="host-family-application-2024" 
+                    variant='outline-secondary' 
+                    class="py-6 no-underline hover:bg-secondary-900"
+                >
+                    <Icon icon="download" /> 
+                    Host Family Application (36kb PDF)
+                </Button>
 
             </TextFlow>
 

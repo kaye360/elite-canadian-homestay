@@ -1,0 +1,40 @@
+---
+import Icon from "./Icon.astro";
+import Wrapper from "./Wrapper.astro";
+---
+
+<div 
+    id="back-to-top-button"
+    class="fixed -bottom-24 left-0 right-2 transition-all duration-300 pointer-events-none"
+>
+    <Wrapper 
+        width="max" 
+        padding="inline"
+        class="text-right pointer-events-none"
+    >
+        <a 
+            href="#top"
+            class="flex items-center gap-2 ml-auto w-fit p-4 text-sm rounded-xl bg-primary-50 hover:bg-primary-200 pointer-events-auto"
+        >
+            Back to Top
+            <Icon icon="arrow_circle_up" />
+        </a>
+    </Wrapper>
+</div>
+
+
+<script>
+
+const backToTopBtn = document.querySelector('#back-to-top-button')
+
+document.addEventListener('scroll', () => {
+    if( scrollY > window.screen.height) {
+        backToTopBtn?.classList.add('bottom-2')
+        backToTopBtn?.classList.remove('-bottom-24')
+    } else {
+        backToTopBtn?.classList.add('-bottom-24')
+        backToTopBtn?.classList.remove('bottom-2')
+    }
+})
+
+</script>

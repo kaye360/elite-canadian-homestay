@@ -25,7 +25,11 @@ export const EMAIL_ADDRESS = 'lkelitehomestay@gmail.com'
 
 export const LOCATION = 'Langley, BC'
 
-export const ADDRESS = '#45 5670 208 Street Langley, BC, Canada. V3A 8G4'
+export const ADDRESS = {
+    street : '#45 5670 208 Street',
+    city : 'Langley, BC, Canada',
+    postal_code: 'V3A 8G4'
+}
 
 export const HEADER_LOGO_PATH = '/img/logo.svg'
 

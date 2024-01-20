@@ -7,6 +7,8 @@ import Meta from '../components/Meta.astro';
 import type { Layout } from './types';
 import Header from '../components/Header.astro';
 import CallToActionBanner from '../components/CallToActionBanner.astro';
+import PageTop from '../components/PageTop.astro';
+import BackToTop from '../components/BackToTop.astro';
 
 
 interface Props extends Layout { }
@@ -17,6 +19,9 @@ const {
 	lang,
 	class : className
 } = Astro.props
+
+const isRegisterPage = Astro.url.pathname.includes('/register')
+
 ---
 
 <html lang={lang} class="">
@@ -27,6 +32,8 @@ const {
 
 		<SkipToContent />
 
+		<PageTop />
+
 		<Header variant='sticky' props />
 		
         <MainContent>
@@ -35,9 +42,13 @@ const {
 
         </MainContent>
 
-		<CallToActionBanner />
+		{ !isRegisterPage &&
+			<CallToActionBanner />
+		}
 
         <Footer />
+
+		<BackToTop />
 
 		<slot name="pageEnd" />
 		

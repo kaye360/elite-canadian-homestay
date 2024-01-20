@@ -89,6 +89,11 @@
         @apply text-secondary-500 underline hover:bg-secondary-100
     }
 
+    .btn {
+        @apply no-underline
+    }
+
+
 }
 
 
