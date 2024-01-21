@@ -12,6 +12,6 @@ interface Props extends HTMLAttributes<'h2'> {
 const { class: className, ...rest } = Astro.props
 ---
 
-<h2 class:list={['mb-12 text-3xl font-bold font-theme text-secondary-400 relative after:absolute after:-bottom-2 after:left-0 after:right-2/3 after:h-[1px] after:bg-secondary-500/30 w-fit', className]} {...rest}>
+<h2 class:list={['mb-12 text-2xl font-bold font-theme text-secondary-400 relative after:absolute after:-bottom-2 after:left-0 after:right-2/3 after:h-[1px] after:bg-secondary-500/30 w-fit', className]} {...rest}>
     <slot />
 </h2>
