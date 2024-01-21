@@ -7,7 +7,7 @@ import NavLink from "./NavLink.astro";
 <ul class="nav-links">
     { PAGES.map( (page) => ( 
         page.group.includes('header') && page.path !== CTAPath && (
-            <NavLink href={page.path} dropdown={page.dropdown}>{page.title}</NavLink>
+            <NavLink href={page.path}>{page.title}</NavLink>
         )
     ))}
     <li>
