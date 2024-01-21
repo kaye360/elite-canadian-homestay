@@ -15,7 +15,7 @@ import HeroIconProgram from "./HeroIconProgram.astro";
 >
 
     <!-- Desktop Hero Image -->
-    <img src="/img/hero.webp" class="hidden md:block absolute -z-10 top-0 left-0 right-0 w-full h-[110vh] max-h-[700px] object-cover object-top" />
+    <img src="/img/hero.webp" class="hidden md:block absolute -z-10 top-0 left-0 right-0 w-full h-[110vh] max-h-[700px] object-cover object-top" alt="Vancouver's beautiful scenery" />
 
     <Wrapper width="max" padding="inline" class="relative z-20" >
 
@@ -30,7 +30,11 @@ import HeroIconProgram from "./HeroIconProgram.astro";
 
                 <!-- Mobile Hero Image -->
                 <div class="md:hidden absolute inset-[0_0_-5rem_0] -z-10 grid items-stretch ">
-                    <img src="/img/hero.webp" class="relative z-0 object-cover w-auto h-full" />
+                    <img 
+                        src="/img/hero.webp" 
+                        class="relative z-0 object-cover w-auto h-full" 
+                        alt="Vancouver's beautiful scenery"
+                    />
                     <div class="absolute -top-1 left-0 right-0 z-10 h-[100px] bg-gradient-to-b from-primary-25 from-30%" />
                 </div>
 
