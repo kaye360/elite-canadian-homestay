@@ -5,6 +5,7 @@ import H2 from "../components/Heading/H2.astro";
 import TextFlow from "../components/TextFlow.astro";
 import Wrapper from "../components/Wrapper.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Image from "../components/Image.astro";
 
 ---
 
@@ -22,16 +23,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         <Wrapper width="max" padding="both">
 
-            <EvenColumns>
+            <EvenColumns class="gap-8">
 
-                <TextFlow>
+                <TextFlow class="h-min self-center">
                     <H2>Create lasting memories as a homestay host</H2>
                     <p>
                         Join our Short-Term Programs lasting 1-4 weeks during the summer, focusing on helping ESL students improve their English language skills and understanding of Canadian culture. Your warm welcome can create lasting memories for both you and the students seeking enriching experiences. Host Families must live in the Lower Mainland of BC, Canada.
                     </p>
                 </TextFlow>
 
-                <div class="border border-red">Image</div>
+
+                <Image  
+                    src="/img/host-family-1.webp"
+                    alt=""
+                    width={800}
+                    height={800}
+                    class="max-h-[400px] object-cover"
+                />
+
 
             </EvenColumns>
 
@@ -77,7 +86,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
             </TextFlow>
 
-            <div class="h-[300px] border border-red-400 my-12">Image</div>
+            <Image  
+                src="/img/host-family-2.webp"
+                alt=""
+                width={800}
+                height={800}
+                class="max-h-[400px] object-cover mt-8"
+            />
 
         </Wrapper>
 

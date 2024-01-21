@@ -5,6 +5,7 @@ import H2 from "../components/Heading/H2.astro";
 import TextFlow from "../components/TextFlow.astro";
 import Wrapper from "../components/Wrapper.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Image from "../components/Image.astro";
 
 ---
 
@@ -25,7 +26,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
             <EvenColumns class="gap-8">
 
-                <TextFlow>
+                <TextFlow class="h-min self-center">
                     <H2>
                         Learn English as a second language with the best
                     </H2>
@@ -35,7 +36,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </p>
                 </TextFlow>
 
-                image
+                <Image
+                    src="/img/students-8.webp"
+                    alt=""
+                    width={563}
+                    height={1000}
+                    class="w-full max-h-[400px] object-cover"
+                />
 
             </EvenColumns>
 
@@ -76,7 +83,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     At Elite Canadian Homestay, we pride ourselves on placing students in homes where we would not hesitate to entrust our own children.
                 </p>
 
-                <div class="aspect-video border border-red-200">Image</div>
+                <Image
+                    src="/img/students-13.webp"
+                    alt=""
+                    width={800}
+                    height={600}
+                />
 
                 <H2>
                     Dedicated Support: Your Comfort is Our Priority
