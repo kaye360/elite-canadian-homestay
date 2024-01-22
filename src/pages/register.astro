@@ -6,6 +6,7 @@ import TextFlow from "../components/TextFlow.astro";
 import H2 from "../components/Heading/H2.astro";
 import Button from "../components/Button.astro";
 import Icon from "../components/Icon.astro";
+import Image from "../components/Image.astro";
 import { EMAIL_ADDRESS } from "../config";
 ---
 
@@ -29,33 +30,26 @@ import { EMAIL_ADDRESS } from "../config";
                     Whether you're a student eager to embark on a transformative journey or a host family ready to open your doors to global connections, our registration process is simple and straightforward. Simply follow the instructions below.
                 </p>
 
-                <H2>For Students</H2>
-                 
                 <p>
-                    Please download the student application and send it to 
+                    Please download the student or host family application and email it to
                     <a href={'mailto:' + EMAIL_ADDRESS}>
                         {EMAIL_ADDRESS}
                     </a>
                 </p>
+
+                <H2 class="mb-0">Student application</H2>
 
                 <Button 
                     href="/docs/student-application-2024.pdf" 
                     download="student-application-2024" 
                     variant='outline-secondary' 
-                    class="py-6 no-underline hover:bg-secondary-900"
+                    class="py-6 no-underline hover:bg-secondary-900 mb-8"
                 >
                     <Icon icon="download" /> 
                     Student Application (36kb PDF)
                 </Button>
 
-                <H2>For Host Families</H2>
-
-                <p>
-                    Please download the host Family application and send it to 
-                    <a href={'mailto:' + EMAIL_ADDRESS}>
-                        {EMAIL_ADDRESS}
-                    </a>
-                </p>
+                <H2 class="mb-0">Host family application</H2>
 
                 <Button 
                     href="/docs/host-family-application-2024.pdf" 
@@ -66,6 +60,14 @@ import { EMAIL_ADDRESS } from "../config";
                     <Icon icon="download" /> 
                     Host Family Application (415kb PDF)
                 </Button>
+
+                <Image
+                    src="/img/students-11.webp"
+                    alt="ESL students in front of a Canadian flag"
+                    width={800}
+                    height={600}
+                    
+                />
 
             </TextFlow>
 
