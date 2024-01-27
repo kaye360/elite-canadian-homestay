@@ -8,6 +8,7 @@ export interface Image extends HTMLAttributes<'img'> {
     alt : string,
     class? : string,
     lazy? : boolean,
+    rounded? : boolean
 }
 
 interface Props extends Image {
@@ -16,6 +17,7 @@ interface Props extends Image {
      * @extends <img>s
      * @prop Required img props: src, width, height, alt
      * @prop Lazy - boolean (default false)
+     * @prop rounded - boolean
      */
     props? : true
 }
@@ -27,8 +29,12 @@ const {
     alt,
     lazy = true,
     class : className,
+    rounded = true,
     ...rest
 } = Astro.props
+
+
+const isRounded = rounded ? 'rounded-md' : ''
 ---
 
 
@@ -37,7 +43,7 @@ const {
     width={width} 
     height={height} 
     alt={alt} 
-    class:list={['rounded-md', className]} 
+    class:list={[isRounded, className]} 
     loading={ lazy ? 'lazy' : 'eager'}
     {...rest}
 />
