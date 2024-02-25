@@ -5,7 +5,7 @@ import Wrapper from "./Wrapper.astro";
 
 <div 
     id="back-to-top-button"
-    class="fixed -bottom-24 left-0 right-2 transition-all duration-300 pointer-events-none"
+    class="fixed z-[9999] -bottom-24 left-0 right-2 transition-all duration-300 pointer-events-none"
 >
     <Wrapper 
         width="max" 
@@ -14,7 +14,7 @@ import Wrapper from "./Wrapper.astro";
     >
         <a 
             href="#top"
-            class="flex items-center gap-2 ml-auto w-fit p-4 text-sm rounded-xl bg-primary-50 hover:bg-primary-200 pointer-events-auto"
+            class="flex items-center gap-2 ml-auto w-fit px-4 py-2 text-sm rounded-xl bg-primary-50 hover:bg-primary-200 bg-opacity-50 pointer-events-auto"
         >
             Back to Top
             <Icon icon="arrow_circle_up" />
@@ -25,15 +25,15 @@ import Wrapper from "./Wrapper.astro";
 
 <script>
 
-const backToTopBtn = document.querySelector('#back-to-top-button')
+const backToTopBtn = document.querySelector('#back-to-top-button') as HTMLDivElement
 
 document.addEventListener('scroll', () => {
     if( scrollY > window.screen.height) {
-        backToTopBtn?.classList.add('bottom-2')
-        backToTopBtn?.classList.remove('-bottom-24')
+        backToTopBtn.classList.add('bottom-2')
+        backToTopBtn.classList.remove('-bottom-24')
     } else {
-        backToTopBtn?.classList.add('-bottom-24')
-        backToTopBtn?.classList.remove('bottom-2')
+        backToTopBtn.classList.add('-bottom-24')
+        backToTopBtn.classList.remove('bottom-2')
     }
 })
 
