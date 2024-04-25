@@ -47,10 +47,10 @@ ul.nav-links {
         background-color: var(--nav-bar-bg-color) !important;
     }
     
-    .mobile-menu-is-open ul.nav-links {
-    /* ul.nav-links:has( a:focus ) { */
+    .mobile-menu-is-open ul.nav-links ,
+    ul.nav-links:has( a:focus ) {
         padding-block : 2rem;
-        overflow: visible;
+        /* overflow: visible; */
         max-height: 1000px;
 
     }
