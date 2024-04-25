@@ -74,7 +74,7 @@ const {
 
     <Wrapper width='max' padding='inline'>
 
-        <div class="flex flex-wrap items-center gap-x-2 md:gap-x-6 py-2">
+        <div class="relative flex flex-wrap items-center gap-x-2 md:gap-x-6 py-2">
 
             <div class="order-1 mr-auto">
                 <Logo />
@@ -88,7 +88,7 @@ const {
                 <MobileMenuBtn />
             </div>
             
-            <nav class="order-4 lg:order-2 relative lg:flex items-start gap-4 w-full lg:w-auto ">
+            <nav class="order-4 lg:order-2 absolute top-full left-0 right-0 lg:relative lg:flex items-start gap-4 w-full lg:w-auto ">
                 <NavLinks />
             </nav>
 
@@ -107,6 +107,7 @@ const {
 
 header {
     transition: all 250ms;
+    background-color: hsl( 180deg 34% 50% );
 }
 
 header.hasTransparentBg {

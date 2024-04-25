@@ -87,6 +87,7 @@ button {
 const btn = document.querySelector('[data-element="mobile-menu-btn"]') as HTMLButtonElement
 
 function toggleMobileMenu(): void { 
+    console.log('clicked')
     const body = document.body as HTMLBodyElement
     body.classList.toggle('mobile-menu-is-open')
 }
