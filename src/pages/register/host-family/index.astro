@@ -1,0 +1,43 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationNote from "../../../components/Registration/RegistrationNote.astro";
+import Button from "../../../components/Button.astro";
+import Icon from "../../../components/Icon.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max">
+
+            <div class="grid gap-8 justify-start w-fit">
+
+                <p class="max-w-[70ch]">
+                    Thank you for your interest in becoming a host family. Please click the button below to begin the intake form.
+                </p>
+    
+                <RegistrationNote />
+    
+                <div>
+                    <Button href="/register/host-family/host-family" variant="fill-secondary" class="max-w-fit">
+                        Start Intake form
+                        <Icon icon="arrow_forward" />
+                    </Button>
+                </div>
+                
+            </div>
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>

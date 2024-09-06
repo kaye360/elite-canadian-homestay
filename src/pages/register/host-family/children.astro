@@ -1,0 +1,157 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import RegistrationButtons from "../../../components/Registration/RegistrationButtons.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <RegistrationHeading>
+                    Children Information
+                </RegistrationHeading>
+
+                <div id="children-container" class="grid gap-4" />
+
+                <RegistrationButtons />
+
+            </form>
+
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<style is:global>
+
+#children-container h3 {
+    font-weight: 600;
+}
+
+#children-container label {
+    display : grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    gap : 1rem;
+    width : 100%;
+}
+
+#children-container label:has( input:focus ) {
+    background-color: hsl( var(--primary-color) 90% );
+}
+
+#children-container input {
+    border : 1px solid hsl( var(--primary-color) 60% );
+    border-radius: 0.25rem;
+    padding : 0.25rem;
+    width : 100%;
+    max-width: 400px;
+}
+
+</style>
+
+<script>
+import { autoSave, clearAllInputValues, clearHostFamilyFormData, getHostFamilyForm, getHostFamilyFormData, next } from "../../../js/registerHostFamily"
+
+const form = getHostFamilyForm()
+
+const onSubmit = (e: Event) => {
+    e.preventDefault()
+    next({ form, href : "/register/host-family/references", key : 'hf-form-children' })
+}
+
+const onReset = () => {
+    clearAllInputValues()
+    clearHostFamilyFormData('hf-form-children')
+}
+
+form.addEventListener('submit', onSubmit  )
+form.addEventListener('reset', onReset  )
+
+const container = document.querySelector('#children-container')
+const numLS = localStorage.getItem('hf-form-children-num')
+let num = 0
+
+if( numLS ) {
+    const numObj = JSON.parse(numLS)
+    if( 'num-of-children' in numObj ) {
+        num = Number(numObj['num-of-children'])
+        renderChildForm(num)
+    }
+}
+
+// autoSave must be after renderChildForm()
+autoSave({form, key : 'hf-form-children'})
+
+if( num === 0 ) {
+    container?.insertAdjacentHTML('beforeend', `
+        If you have 0 children, you may skip this step. 
+    `)
+}
+
+function renderChildForm(num : number) {
+
+    const childData = getHostFamilyFormData('hf-form-children')
+
+    for( let i = 1; i <= num; i++ ) {
+
+        const livesAtHome = childData[`child-${i}-lives-at-home`] === "true"
+
+        container?.insertAdjacentHTML('beforeend', `
+            <div class="grid gap-2">
+                <h3 class="font-semibold text-secondary-500 text-lg flex items-center justify-between max-w-xl">
+                    Child ${i}
+                </h3>
+                <label>
+                    Name:
+                    <input type="text" name="child-${i}-name" value="${childData[`child-${i}-name`] || ''}">
+                </label>
+                <label>
+                    Gender
+                    <input type="text" name="child-${i}-gender" value="${childData[`child-${i}-gender`] || ''}">
+                </label>
+                <label>
+                    Birthday
+                    <input type="text" name="child-${i}-birthdate" value="${childData[`child-${i}-birthdate`] || ''}">
+                </label>
+                <label>
+                    Interests
+                    <input type="text" name="child-${i}-interests" value="${childData[`child-${i}-interests`] || ''}">
+                </label>
+                <div class="flex gap-4 w-fit">
+                    <span class="min-w-max">
+                        Lives at home?
+                    </span>
+                    <label class="!flex w-fit mr-8"> 
+                        <input type="radio" name="child-${i}-lives-at-home" value="true" ${livesAtHome ? 'checked' : ''}>
+                        Yes
+                    </label>
+                    <label class="!flex w-fit"> 
+                        <input type="radio" name="child-${i}-lives-at-home" value="false" ${!livesAtHome ? 'checked' : ''}>
+                        No
+                    </label>
+                </div>
+            </div>
+        `)
+    }
+}
+
+</script>

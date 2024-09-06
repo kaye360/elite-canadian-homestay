@@ -1,0 +1,37 @@
+---
+import Icon from "../Icon.astro";
+
+interface Props {
+    isChecked : boolean
+    isActive : boolean
+    title : string
+    href : string
+}
+
+const { 
+    isChecked = false,
+    isActive = false,
+    title,
+    href
+} = Astro.props
+---
+
+<a  
+    href={href}
+    class:list={[
+        "grid place-items-center  rounded-full h-[24px] relative mb-2 no-underline hover:bg-secondary-400 group",
+        isChecked ? 'bg-primary-500' : 'bg-primary-200',
+        isActive ? 'bg-primary-500 border-2 border-primary-600' : ''
+    ]}
+>
+    { isChecked && (
+        <Icon icon="check" class="text-base text-primary-200 group-hover:text-secondary-50" />
+    )}
+    
+    <span class:list={[
+        "absolute top-[115%] left-1/2 -translate-x-1/2 text-sm font-semibold min-w-max group-hover:text-secondary-500",
+        isChecked || isActive ? 'text-primary-500' : 'text-primary-300'
+    ]}>
+        {title}
+    </span>
+</a>

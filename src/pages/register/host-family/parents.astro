@@ -1,0 +1,134 @@
+---
+import FormField from "../../../components/Forms/FormField.astro";
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import RegistrationButtons from "../../../components/Registration/RegistrationButtons.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <div id="father">
+                    <RegistrationHeading>
+                        Father Information
+                    </RegistrationHeading>
+                </div>
+
+                <FormField 
+                    type="text"
+                    name="father-name"
+                    label="Father's name"
+                />
+
+                <FormField 
+                    type="text"
+                    name="father-occupation"
+                    label="Occupation"
+                />
+
+                <FormField 
+                    type="text"
+                    name="father-birthdate"
+                    label="Birthdate (D/M/Y)"
+                />
+
+                <FormField 
+                    type="tel"
+                    name="father-phone"
+                    label="Phone number"
+                />
+
+                <FormField 
+                    type="text"
+                    name="father-email"
+                    label="Email"
+                />
+
+                <div id="mother">
+                    <RegistrationHeading>
+                        Mother Information
+                    </RegistrationHeading>
+                </div>
+
+                <FormField 
+                    type="text"
+                    name="mother-name"
+                    label="Mother's name"
+                />
+
+                <FormField 
+                    type="text"
+                    name="mother-occupation"
+                    label="Occupation"
+                />
+
+                <FormField 
+                    type="text"
+                    name="mother-birthdate"
+                    label="Birthdate (D/M/Y)"
+                />
+
+                <FormField 
+                    type="tel"
+                    name="mother-phone"
+                    label="Phone number"
+                />
+
+                <FormField 
+                    type="text"
+                    name="mother-email"
+                    label="Email"
+                />
+
+                <RegistrationButtons />
+
+            </form>
+
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { autoSave, clearAllTextareaContent, clearHostFamilyFormData, getHostFamilyForm, getHostFamilyFormData, insertSavedTextInputData, next } from "../../../js/registerHostFamily"
+
+const form = getHostFamilyForm()
+
+autoSave({form, key : 'hf-form-parents'})
+
+const onSubmit = (e: Event) => {
+    e.preventDefault()
+    next({ form, href : "/register/host-family/children-num", key : 'hf-form-parents' })
+}
+
+const onReset = () => {
+    clearAllTextareaContent()
+    clearHostFamilyFormData('hf-form-parents')
+}
+
+form.addEventListener('submit', onSubmit)
+form.addEventListener('reset', onReset)
+
+const parentsData = getHostFamilyFormData('hf-form-parents')
+
+// Text, tel, email, etc inputs
+insertSavedTextInputData(parentsData)
+</script>

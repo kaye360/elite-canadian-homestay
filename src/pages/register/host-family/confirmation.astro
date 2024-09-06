@@ -1,0 +1,222 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import Button from "../../../components/Button.astro";
+import RegistrationConfirmationSection from "../../../components/Registration/RegistrationConfirmationSection.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <RegistrationHeading>
+                    Confirmation
+                </RegistrationHeading>
+
+                <p>
+                    Please confirm that the following information is correct before submitting. 
+                </p>
+
+                <RegistrationHeading editHref="/register/host-family/host-family">
+                    Host family information
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Host family last name" id="host-family-last-name" />
+                <RegistrationConfirmationSection title="Host family phone number" id="host-family-phone" />
+                <RegistrationConfirmationSection title="Host family address" id="host-family-address" />
+                <RegistrationConfirmationSection title="Host family city" id="host-family-city" />
+                <RegistrationConfirmationSection title="Host family postal code" id="host-family-postal-code" />
+
+                <RegistrationHeading editHref="/register/host-family/parents#father">
+                    Father information
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Name" id="father-name" />
+                <RegistrationConfirmationSection title="Occupation" id="father-occupation" />
+                <RegistrationConfirmationSection title="Birthdate" id="father-birthdate" />
+                <RegistrationConfirmationSection title="Phone" id="father-phone" />
+                <RegistrationConfirmationSection title="Email" id="father-email" />
+
+                <RegistrationHeading editHref="/register/host-family/parents#mother"> 
+                    Mother information
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Name" id="mother-name" />
+                <RegistrationConfirmationSection title="Occupation" id="mother-occupation" />
+                <RegistrationConfirmationSection title="Birthdate" id="mother-birthdate" />
+                <RegistrationConfirmationSection title="Phone" id="mother-phone" />
+                <RegistrationConfirmationSection title="Email" id="mother-email" />
+
+                <RegistrationHeading editHref="/register/host-family/children-num">
+                    Children Information
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Number of children" id="num-of-children" />
+                <div id="children-container" class="grid grid-cols-[200px_1fr] gap-y-4" />
+
+                <RegistrationHeading editHref="/register/host-family/host-family">
+                    Family interests
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Interests" id="family-interests" />
+
+                <RegistrationHeading editHref="/register/host-family/host-family">
+                    Family information
+                </RegistrationHeading>
+
+                <RegistrationConfirmationSection title="Special diet" id="special-diet" />
+                <RegistrationConfirmationSection title="Pets" id="pets" />
+                <RegistrationConfirmationSection title="Smoking in home" id="smoking" />
+                <RegistrationConfirmationSection title="Other people in home" id="other-people-in-home" />
+                <RegistrationConfirmationSection title="Hosted before" id="hosted-before" />
+                <RegistrationConfirmationSection title="Languages spoken" id="languages" />
+
+                <RegistrationHeading editHref="/register/host-family/references#reference1">
+                    Reference 1
+                </RegistrationHeading>
+                <RegistrationConfirmationSection title="Name" id="reference-1-name" />
+                <RegistrationConfirmationSection title="Address" id="reference-1-address" />
+                <RegistrationConfirmationSection title="Phone" id="reference-1-phone" />
+                <RegistrationConfirmationSection title="Relationship" id="reference-1-relationship" />
+
+                <RegistrationHeading editHref="/register/host-family/references#reference2">
+                    Reference 2
+                </RegistrationHeading>
+                <RegistrationConfirmationSection title="Name" id="reference-2-name" />
+                <RegistrationConfirmationSection title="Address" id="reference-2-address" />
+                <RegistrationConfirmationSection title="Phone" id="reference-2-phone" />
+                <RegistrationConfirmationSection title="Relationship" id="reference-2-relationship" />
+
+                <RegistrationHeading>Submission</RegistrationHeading>
+                <label class="flex items-start gap-4">
+                    <input type="checkbox" required name="confirmation" class="mt-3 scale-150" />
+                    <p class="max-w-[70ch]">
+                        As a Host Family we agree to 3 single placements or 4 double placements(2x2) in our home(from all companies) who speak  different languages, We will treat our student as a family member and include him/her in all our activities. We confirm that we have home liability insurance and will provide Elite Homestay with a copy.
+                    </p>
+                </label>
+
+                <div>
+                    <div id="hidden-inputs" />
+                    <Button 
+                        type="submit"
+                        variant="outline-secondary"    
+                        class="w-min"
+                    >
+                        Submit Registration
+                    </Button>
+                </div>
+
+            </form>
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { getHostFamilyFormData } from "../../../js/registerHostFamily"
+
+
+// Host Family
+const hostFamilyData = getHostFamilyFormData('hf-form-host-family')
+
+for( const prop in hostFamilyData ) {
+    if( prop.includes('interests') ) {
+        const field = document.querySelector('#family-interests')
+        field?.insertAdjacentText('beforeend', hostFamilyData[prop] + ' ' )
+        continue
+    }
+    const field = document.querySelector(`#${prop}`)
+    let value = hostFamilyData[prop] || ''
+    if( value === "true" ) value = "Yes"
+    if( value === "false" ) value = "No"
+    field?.insertAdjacentText('beforeend', value)
+}
+
+// Children
+const childrenData = getHostFamilyFormData('hf-form-children')
+
+const childrenNumData = getHostFamilyFormData('hf-form-children-num')
+
+const childrenContainer  = document.querySelector('#children-container')
+const numOfChildrenField = document.querySelector('#num-of-children')
+
+const numOfChildren = childrenNumData['num-of-children']
+numOfChildrenField?.insertAdjacentText('beforeend', numOfChildren)
+
+for( let i=1; i<=Number(numOfChildren); i++ ) {
+    const field = `
+        <h3 class="col-span-2 font-semibold">Child ${i}</h3>
+        <span>Name</span> ${childrenData[`child-${i}-name`]}
+        <span>Gender</span> ${childrenData[`child-${i}-gender`]}
+        <span>Birthdate</span> ${childrenData[`child-${i}-birthdate`]}
+        <span>Interests</span> ${childrenData[`child-${i}-interests`]}
+        <span>Lives at home?</span> ${childrenData[`child-${i}-lives-at-home`] === "true" ? 'Yes' : 'No' }
+    `
+    childrenContainer?.insertAdjacentHTML('beforeend', field)
+}
+
+// Parents
+const parentsData = getHostFamilyFormData('hf-form-parents')
+
+for( const prop in parentsData ) {
+    const field = document.querySelector(`#${prop}`)
+    field?.insertAdjacentText('beforeend', parentsData[prop])
+}
+
+// References
+const referencesData = getHostFamilyFormData('hf-form-references')
+
+for( const prop in referencesData ) {
+    const field = document.querySelector(`#${prop}`)
+    field?.insertAdjacentText('beforeend', referencesData[prop])
+}
+
+// Hidden Inputs
+const hostFamilyInterests : {[key:string] : string} = {
+    'host-family-interests' : document.querySelector('#family-interests')
+        ?.textContent
+        ?.replace('Interests','')
+        .trim() || ''
+}
+
+const hostFamilyDataWithoutInterests = Object.fromEntries(
+     Object.entries( hostFamilyData ).filter( item => !item[0].includes('interests') )
+)
+
+const hiddenInputsContainer = document.querySelector('#hidden-inputs')
+const inputs = {...hostFamilyDataWithoutInterests, ...hostFamilyInterests, ...childrenData, ... childrenNumData, ...parentsData, ...referencesData }
+
+for ( const prop in inputs) {
+    hiddenInputsContainer?.insertAdjacentHTML('beforeend', `
+        <input type="hidden" name="${prop}" value="${inputs[prop]}" >
+    `)
+}
+
+// Form
+const form = document.querySelector('#host-family') as HTMLFormElement
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(e: Event) {
+    e.preventDefault()
+    const data = Object.fromEntries( new FormData(form) )
+    console.log(data)
+}
+
+</script>

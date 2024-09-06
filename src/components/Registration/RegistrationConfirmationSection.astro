@@ -1,0 +1,13 @@
+---
+const { id, title } =  Astro.props
+---
+<div 
+    id={id}
+    class="grid grid-cols-[200px_1fr]"
+>
+    <span>
+        {title}
+    </span>
+
+    <slot />
+</div>

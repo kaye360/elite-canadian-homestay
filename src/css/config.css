@@ -59,14 +59,6 @@
         --spacing-inline-default : 2vw;
         --spacing-block-default : 2rem;
         
-        @media screen and (min-width : 768px) {
-            --spacing-inline-default : 2vw;
-            --spacing-block-default : 4rem;
-        }
-
-
-
-
     }
     
     html {

@@ -1,0 +1,121 @@
+---
+import FormField from "../../../components/Forms/FormField.astro";
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import RegistrationButtons from "../../../components/Registration/RegistrationButtons.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <div id="reference1">
+                    <RegistrationHeading>
+                        Reference 1 Information
+                    </RegistrationHeading>
+                </div>
+
+                <FormField 
+                    type="text"
+                    name="reference-1-name"
+                    label="Name"
+                />
+
+                <FormField 
+                    type="text"
+                    name="reference-1-address"
+                    label="Address"
+                />
+
+                <FormField 
+                    type="tel"
+                    name="reference-1-phone"
+                    label="Phone number"
+                />
+
+                <FormField 
+                    type="text"
+                    name="reference-1-relationship"
+                    label="Relationship"
+                />
+
+                <div id="reference2">
+                    <RegistrationHeading>
+                        Reference 2 Information
+                    </RegistrationHeading>
+                </div>
+
+                <FormField 
+                    type="text"
+                    name="reference-2-name"
+                    label="Name"
+                />
+
+                <FormField 
+                    type="text"
+                    name="reference-2-address"
+                    label="Address"
+                />
+
+                <FormField 
+                    type="tel"
+                    name="reference-2-phone"
+                    label="Phone number"
+                />
+
+                <FormField 
+                    type="text"
+                    name="reference-2-relationship"
+                    label="Relationship"
+                />
+
+                <RegistrationButtons />
+
+            </form>
+
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { autoSave, clearHostFamilyFormData, getHostFamilyForm, getHostFamilyFormData, insertSavedTextInputData, next } from "../../../js/registerHostFamily"
+
+const form = getHostFamilyForm()
+
+autoSave({form, key : 'hf-form-references'})
+
+const onSubmit = (e: Event) => {
+    e.preventDefault()
+    next({ form, href : "/register/host-family/confirmation", key : 'hf-form-references' })
+}
+
+const onReset = () => {
+    clearHostFamilyFormData('hf-form-references')
+}
+
+form.addEventListener('submit', onSubmit )
+form.addEventListener('reset', onReset )
+
+const referencesData = getHostFamilyFormData('hf-form-references')
+
+insertSavedTextInputData(referencesData)
+
+</script>

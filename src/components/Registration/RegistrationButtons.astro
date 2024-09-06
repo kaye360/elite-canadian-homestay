@@ -1,0 +1,25 @@
+---
+import Button from "../Button.astro";
+import Icon from "../Icon.astro";
+---
+
+<div class="flex gap-2 max-w-[65ch] mt-8">
+
+    <Button
+        type="reset"
+        variant="plain-secondary"
+        class="max-w-min"
+    >
+        Reset This Page
+    </Button>
+
+    <Button 
+        type="submit"
+        variant="fill-secondary"    
+        class="max-w-min"
+    >
+        Next
+        <Icon icon="arrow_forward" />
+    </Button>
+
+</div>

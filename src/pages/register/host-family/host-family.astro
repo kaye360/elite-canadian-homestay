@@ -1,0 +1,322 @@
+---
+import FormField from "../../../components/Forms/FormField.astro";
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import RegistrationButtons from "../../../components/Registration/RegistrationButtons.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <RegistrationHeading>
+                    Host Family Information
+                </RegistrationHeading>
+
+                <FormField 
+                    type="text"
+                    name="host-family-last-name"
+                    label="Host family last name"
+                />
+
+                <FormField 
+                    type="tel"
+                    name="host-family-phone"
+                    label="Phone number"
+                />
+
+                <FormField 
+                    type="text"
+                    name="host-family-address"
+                    label="Home address"
+                />
+
+                <FormField 
+                    type="text"
+                    name="host-family-city"
+                    label="City"
+                />
+
+                <FormField 
+                    type="text"
+                    name="host-family-postal-code"
+                    label="Postal code"
+                />
+
+                
+                <h3 class="font-semibold">
+                    Family Interests
+                </h3>
+
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-animals"
+                            value="animals"
+                        />
+                        Animals
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-baseball"
+                            value="baseball"
+                        />
+                        Baseball
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-bicycling"
+                            value="bicycling"
+                        />
+                        Bicycling
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-boating"
+                            value="boating"
+                        />
+                        Boating
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-camping"
+                            value="camping"
+                        />
+                        Camping
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-cooking"
+                            value="cooking"
+                        />
+                        Cooking/Baking
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-gardening"
+                            value="gardening"
+                        />
+                        Gardening
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-hiking"
+                            value="hiking"
+                        />
+                        Hiking/Walking
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-movies"
+                            value="movies"
+                        />
+                        Movies
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-music"
+                            value="music"
+                        />
+                        Music
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-reading"
+                            value="reading"
+                        />
+                        Reading
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-skiing"
+                            value="skiing/skating"
+                        />
+                        Skiing/Skating
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-swimming"
+                            value="swimming"
+                        />
+                        Swimming
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-tennis"
+                            value="tennis"
+                        />
+                        Tennis
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="interests-travel"
+                            value="travel"
+                        />
+                        Travel
+                    </label>
+                    <label class="col-span-2">
+                        Other:
+                        <textarea name="interests-other" class="w-full border border-primary-500 p-2 scroll-p-4" rows="3"></textarea>
+                    </label>
+                </div>
+
+                <div class="grid gap-4">
+                    <h3 class="font-semibold">
+                        Family Information
+                    </h3>
+
+                    <p class=" mb-8">
+                        If any of these fields do not apply, please leave them blank
+                    </p>
+
+                    <FormField 
+                        type="textarea"
+                        name="special-diet"
+                        label="Special Diet"
+                    />
+
+                    <FormField 
+                        type="textarea"
+                        name="pets"
+                        label="Pets (Indoor and outdoor):"
+                    />
+
+
+                    <FormField 
+                        type="textarea"
+                        name="other-people-in-home"
+                        label="Are there any other people who live in the home?"
+                    />
+
+                    <FormField 
+                        type="text"
+                        name="languages"
+                        label="Languages spoken at home"
+                    />
+
+                    
+                    <div>
+                        <strong>
+                            Does anyone smoke in the house? <br />
+                        </strong>
+                        <label class="mr-6">
+                            <input
+                                type="radio"
+                                name="smoking"
+                                value="true"
+                            />
+                            Yes
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="smoking"
+                                value="false"
+                                checked
+                            />
+                            No
+                        </label>
+                    </div>
+
+                    
+                    <div>
+                        <strong>
+                            Have you hosted an exchange student before? <br />
+                        </strong>
+                        <label class="mr-6">
+                            <input
+                                type="radio"
+                                name="hosted-before"
+                                value="true"
+                            />
+                            Yes
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="hosted-before"
+                                value="false"
+                                checked
+                            />
+                            No
+                        </label>
+                    </div>
+
+                    <RegistrationButtons />
+
+            </form>
+
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { next, getHostFamilyFormData, insertSavedTextInputData, insertSavedCheckboxInputData, insertSavedRadioInputData, insertSavedTextareaData, getHostFamilyForm, clearAllTextareaContent, clearHostFamilyFormData, autoSave } from '../../../js/registerHostFamily.ts'
+
+const form = getHostFamilyForm()
+
+autoSave({form, key : 'hf-form-host-family'})
+
+const onSubmit = (e: Event) => {
+    e.preventDefault()
+    next({ form, href : "/register/host-family/parents", key : 'hf-form-host-family' })
+}
+
+const onReset = () => {
+    clearAllTextareaContent()
+    clearHostFamilyFormData('hf-form-host-family')
+}
+
+form.addEventListener('submit', onSubmit  )
+form.addEventListener('reset', onReset)
+
+const hostFamilyData = getHostFamilyFormData('hf-form-host-family')
+
+// Text, tel, email, etc inputs
+insertSavedTextInputData(hostFamilyData)
+
+// Checkboxes
+insertSavedCheckboxInputData(hostFamilyData)
+
+// Radio boxes (True or false, pairs of two)
+insertSavedRadioInputData(hostFamilyData)
+
+// Textarea
+insertSavedTextareaData({
+    data : hostFamilyData,
+    names : ['interests-other', 'special-diet', 'pets', 'other-people-in-home']
+})
+</script>

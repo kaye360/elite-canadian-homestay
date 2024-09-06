@@ -1,0 +1,106 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import RegistrationProgress from "../../../components/Registration/RegistrationProgress.astro";
+import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
+import RegistrationButtons from "../../../components/Registration/RegistrationButtons.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max" class="grid gap-8">
+
+            <RegistrationProgress />
+
+            <form id="host-family" class="grid gap-4">
+            
+                <RegistrationHeading>
+                    Children Information
+                </RegistrationHeading>
+
+                <label>
+                    <p class="mb-3">
+                        How many children do you have?
+                    </p>
+                    <select name="num-of-children" class="border border-primary-400 rounded mb-3">
+                        <option disabled>Please choose a number</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </label>
+
+                <RegistrationButtons />
+
+            </form>
+
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { autoSave } from "../../../js/registerHostFamily"
+
+const form = document.querySelector('#host-family') as HTMLFormElement
+form.addEventListener('submit', handleSubmit)
+
+autoSave({form, key : 'hf-form-children-num'})
+
+function getData()  {
+    return Object.fromEntries( new FormData(form) )
+}
+
+function saveFormData() {
+    const data = getData()
+    localStorage.setItem('hf-form-children-num', JSON.stringify(data) )
+}
+
+function handleSubmit(e: Event) {
+    e.preventDefault()
+    saveFormData()
+    const data = getData()
+    const numOfChildren = Number( data['num-of-children'] )
+    if( numOfChildren === 0 ) {
+        window.location.href="/register/host-family/family-info"
+        return
+    }
+    if( typeof numOfChildren === 'number') {
+        window.location.href = `/register/host-family/children`
+        return
+    }
+}
+
+const numOfChildrenLS = localStorage.getItem('hf-form-children-num')
+
+if( numOfChildrenLS ) {
+    const numOfChildrenObj = JSON.parse( numOfChildrenLS )
+
+    if( 'num-of-children' in numOfChildrenObj ) {
+        
+        const currentNumOfChildren = numOfChildrenObj['num-of-children'] as number
+
+        const options = Array.from ( document.querySelectorAll('option') )
+        const currentNumOption = options.filter( option => option.value === currentNumOfChildren.toString() )[0]
+        currentNumOption.setAttribute('selected', "true")
+    }
+}
+</script>

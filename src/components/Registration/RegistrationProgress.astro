@@ -1,0 +1,61 @@
+---
+import RegistrationProgessLine from "./RegistrationProgessLine.astro";
+import RegistrationProgressItem from "./RegistrationProgressItem.astro";
+
+const currentPage = Astro.url.pathname.split('/')[3]
+---
+
+<div class="grid grid-cols-[24px_1fr_24px_1fr_24px_1fr_24px_1fr_24px] gap-1 items-center w-full max-w-[65ch] pl-3 pr-7">
+
+    <RegistrationProgressItem 
+        title="Family"
+        href="/register/host-family/host-family"
+        isActive={ currentPage === 'host-family' }
+        isChecked={ currentPage !== 'host-family' }
+    />
+
+    <RegistrationProgessLine 
+        isChecked={ currentPage !== 'host-family' }
+    />
+
+    <RegistrationProgressItem 
+        title="Parents"
+        href="/register/host-family/parents"
+        isActive={ currentPage === 'parents' }
+        isChecked={ currentPage === 'children-num' || currentPage === 'references' || currentPage === 'confirmation'  }
+    />
+
+    <RegistrationProgessLine 
+        isChecked={ currentPage === 'children-num' || currentPage === 'references' || currentPage === 'confirmation'  }
+    />
+
+    <RegistrationProgressItem 
+        title="Children"
+        href="/register/host-family/children-num"
+        isActive={ currentPage === 'children-num' }
+        isChecked={ currentPage === 'references' || currentPage === 'confirmation' }
+    />
+
+    <RegistrationProgessLine 
+        isChecked={ currentPage === 'references' || currentPage === 'confirmation' }
+    />
+
+    <RegistrationProgressItem 
+        title="References"
+        href="/register/host-family/references"
+        isActive={ currentPage === 'references' }
+        isChecked={ currentPage === 'confirmation' }
+    />
+
+    <RegistrationProgessLine 
+        isChecked={ currentPage === 'confirmation' }
+    />
+
+    <RegistrationProgressItem 
+        title="Confirmation"
+        href="/register/host-family/confirmation"
+        isActive={ false }
+        isChecked={ currentPage === 'confirmation' }
+    />
+
+</div>

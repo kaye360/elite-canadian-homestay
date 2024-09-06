@@ -1,0 +1,18 @@
+---
+import Icon from '../Icon.astro'
+
+interface Props {
+    editHref? : string
+}
+const { editHref } = Astro.props
+---
+
+<h2 class="font-semibold text-secondary-500 text-lg flex items-center justify-between max-w-xl">
+    <slot />
+    { editHref && (
+        <a href={editHref} class="flex items-center gap-2 text-sm no-underline">
+            Edit
+            <Icon icon="edit" class="text-sm" />
+        </a>
+    )}
+</h2>

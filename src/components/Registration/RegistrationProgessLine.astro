@@ -1,0 +1,12 @@
+---
+interface Props {
+    isChecked : boolean
+}
+
+const { isChecked } = Astro.props
+---
+
+<div class:list={[
+    "bg-transparent h-[1px] -translate-y-[3px] border-b-2  border-dashed",
+    isChecked ? 'border-primary-300' : 'border-primary-200'
+]} />
