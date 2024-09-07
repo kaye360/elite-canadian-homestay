@@ -58,39 +58,31 @@ import RegistrationButtons from "../../../components/Registration/RegistrationBu
 </BaseLayout>
 
 <script>
-import { autoSave } from "../../../js/registerHostFamily"
+import { autoSave, next, getFormData } from "../../../js/registerHostFamily"
 
 const form = document.querySelector('#host-family') as HTMLFormElement
 form.addEventListener('submit', handleSubmit)
 
 autoSave({form, key : 'hf-form-children-num'})
 
-function getData()  {
-    return Object.fromEntries( new FormData(form) )
-}
-
-function saveFormData() {
-    const data = getData()
-    localStorage.setItem('hf-form-children-num', JSON.stringify(data) )
-}
-
 function handleSubmit(e: Event) {
     e.preventDefault()
-    saveFormData()
-    const data = getData()
-    const numOfChildren = Number( data['num-of-children'] )
+    const currentFormData = getFormData(form)
+    const numOfChildren = Number( currentFormData['num-of-children'] )
     if( numOfChildren === 0 ) {
-        window.location.href="/register/host-family/family-info"
+        next({form, key : 'hf-form-children-num', href : '/register/host-family/host-family/'})
         return
     }
     if( typeof numOfChildren === 'number') {
-        window.location.href = `/register/host-family/children`
+        next({form, key : 'hf-form-children-num', href : '/register/host-family/children'})
         return
     }
 }
 
+/**
+ * Update form to reflect values in localStorage if it exists
+ */
 const numOfChildrenLS = localStorage.getItem('hf-form-children-num')
-
 if( numOfChildrenLS ) {
     const numOfChildrenObj = JSON.parse( numOfChildrenLS )
 

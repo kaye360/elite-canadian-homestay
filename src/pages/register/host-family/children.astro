@@ -86,12 +86,15 @@ const onReset = () => {
 form.addEventListener('submit', onSubmit  )
 form.addEventListener('reset', onReset  )
 
+/**
+ * Render number of children fields based on Localstorage values
+ */
 const container = document.querySelector('#children-container')
-const numLS = localStorage.getItem('hf-form-children-num')
+const numOfChildrenLS = localStorage.getItem('hf-form-children-num')
 let num = 0
 
-if( numLS ) {
-    const numObj = JSON.parse(numLS)
+if( numOfChildrenLS ) {
+    const numObj = JSON.parse(numOfChildrenLS)
     if( 'num-of-children' in numObj ) {
         num = Number(numObj['num-of-children'])
         renderChildForm(num)
@@ -101,6 +104,10 @@ if( numLS ) {
 // autoSave must be after renderChildForm()
 autoSave({form, key : 'hf-form-children'})
 
+/**
+ * If the user lands on this page with 0 children selected somehow,
+ * then show this message
+ */
 if( num === 0 ) {
     container?.insertAdjacentHTML('beforeend', `
         If you have 0 children, you may skip this step. 

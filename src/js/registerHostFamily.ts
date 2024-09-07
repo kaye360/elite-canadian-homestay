@@ -2,15 +2,23 @@
  * Host family registration helper functions
  */
 
-interface HfFormProp {
+interface HfForm {
     [key: string] : string
 }
 
 export type HfFormSection = 'hf-form-host-family' | 'hf-form-parents' | 'hf-form-children' | 'hf-form-children-num' | 'hf-form-references'
 
+export type HfFormPath = 
+    '/register/host-family/host-family/' | 
+    '/register/host-family/parents' |
+    '/register/host-family/children-num' | 
+    '/register/host-family/children' | 
+    '/register/host-family/references' | 
+    '/register/host-family/confirmation'
+
 /**
  * Get host family form.
- * Each page should have a form with id #host-famil
+ * Each page should have a form with id #host-family
  */
 export function getHostFamilyForm() {
     return document.querySelector('#host-family') as HTMLFormElement
@@ -22,11 +30,18 @@ export function getHostFamilyForm() {
  */
 export function next({ form, href, key } : {
     form : HTMLFormElement,
-    href : string,
+    href : HfFormPath,
     key  : HfFormSection
 }) {
     saveFormData({form, key})
     window.location.href = href
+}
+
+/**
+ * Get data from current form
+ */
+export function getFormData(form : HTMLFormElement) {
+    return Object.fromEntries( new FormData(form) )
 }
 
 /**
@@ -36,7 +51,7 @@ function saveFormData({ form, key } : {
      form : HTMLFormElement,
      key : HfFormSection
 } ) {
-    const data = Object.fromEntries( new FormData(form) )
+    const data = getFormData(form)
     localStorage.setItem(key, JSON.stringify(data) )
 }
 
@@ -47,19 +62,16 @@ export function autoSave({ form, key} : {
     form : HTMLFormElement,
     key : HfFormSection
 }) {
-    document.querySelectorAll('input').forEach( input => {
+    form.querySelectorAll('input, select, textarea').forEach( input => {
         input.addEventListener('blur', () => saveFormData({form, key}) )
-    } )
-    document.querySelectorAll('select').forEach( select => {
-        select.addEventListener('blur', () => saveFormData({form, key}) )
-    } )
+    })
 }
 
 /**
  * Get host family data from LS
  * Return empty obj if no data
  */
-export function getHostFamilyFormData(localStorageKey : HfFormSection) : HfFormProp {
+export function getHostFamilyFormData(localStorageKey : HfFormSection) : HfForm {
     return localStorage.getItem(localStorageKey)
         ? JSON.parse( localStorage.getItem(localStorageKey) as string )
         : {}
@@ -76,7 +88,7 @@ export function clearHostFamilyFormData(localStorageKey: HfFormSection) {
  * If there is data in local storage already saved, insert 
  * it into its associated text, tel, email etc. input
  */
-export function insertSavedTextInputData(data : HfFormProp ) {
+export function insertSavedTextInputData(data : HfForm ) {
     for( const prop in data ) {
         const field = document.querySelector(`#${prop}`) as HTMLInputElement
         if( !field  ) continue
@@ -88,7 +100,7 @@ export function insertSavedTextInputData(data : HfFormProp ) {
  * If there is data in local storage already saved, toggle 
  * the associated checkbox input
  */
-export function insertSavedCheckboxInputData(data : HfFormProp) {
+export function insertSavedCheckboxInputData(data : HfForm) {
     for( const prop in data ) {
         const field = document.querySelector(`input[name=${prop}]`) as HTMLInputElement
         if( !field || field.type !== 'checkbox'  ) continue
@@ -100,7 +112,7 @@ export function insertSavedCheckboxInputData(data : HfFormProp) {
  * If there is data in local storage already saved, toggle 
  * the associated radio input
  */
-export function insertSavedRadioInputData(data : HfFormProp) {
+export function insertSavedRadioInputData(data : HfForm) {
     for( const prop in data ) {
         const fields = Array.from( document.querySelectorAll(`input[name=${prop}]`) as NodeListOf<HTMLInputElement> )
         if( fields.every( field => field.type !== 'radio' ) ) continue
@@ -119,7 +131,7 @@ export function insertSavedRadioInputData(data : HfFormProp) {
  */
 export function insertSavedTextareaData( {names, data} : {
     names : string[],
-    data  : HfFormProp 
+    data  : HfForm 
 }) {
     names.forEach( name => {
         const textarea = document.querySelector(`textarea[name=${name}]`)
