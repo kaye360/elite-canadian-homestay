@@ -1,0 +1,39 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Base/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Icon from "../../../components/Base/Icon.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+    <H1>
+        Host Family Registration
+    </H1>
+
+    <section>
+        <Wrapper width="max" >
+
+            <p class="flex items-start gap-2 mt-6">
+                <Icon icon="check_circle" class="translate-y-1" />
+                <span class="text-xl">
+                    Your host family registration has been submitted successfully <br />
+                    <a href="/">Return to Home Page</a>
+                </span>
+            </p>
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { clearHostFamilyFormData } from "../../../js/registerHostFamily";
+clearHostFamilyFormData('hf-form-host-family')
+clearHostFamilyFormData('hf-form-parents')
+clearHostFamilyFormData('hf-form-children-num')
+clearHostFamilyFormData('hf-form-children')
+clearHostFamilyFormData('hf-form-references')
+</script>

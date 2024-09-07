@@ -23,7 +23,16 @@ import RegistrationConfirmationSection from "../../../components/Registration/Re
 
             <RegistrationProgress />
 
-            <form id="host-family" class="grid gap-4">
+            <form 
+                id="host-family" 
+                class="grid gap-4" 
+                data-netlify="true"
+                name="Host Family Registration"
+                action="/register/host-family/success"
+                method="POST"
+            >
+
+                <input type="hidden" name="subject" value="Host family registration" />
             
                 <RegistrationHeading>
                     Confirmation
