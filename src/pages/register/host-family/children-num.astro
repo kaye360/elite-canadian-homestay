@@ -70,7 +70,7 @@ function handleSubmit(e: Event) {
     const currentFormData = getFormData(form)
     const numOfChildren = Number( currentFormData['num-of-children'] )
     if( numOfChildren === 0 ) {
-        next({form, key : 'hf-form-children-num', href : '/register/host-family/host-family/'})
+        next({form, key : 'hf-form-children-num', href : '/register/host-family/references'})
         return
     }
     if( typeof numOfChildren === 'number') {

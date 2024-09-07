@@ -22,17 +22,17 @@ const currentPage = Astro.url.pathname.split('/')[3]
         title="Parents"
         href="/register/host-family/parents"
         isActive={ currentPage === 'parents' }
-        isChecked={ currentPage === 'children-num' || currentPage === 'references' || currentPage === 'confirmation'  }
+        isChecked={ currentPage === 'children-num' || currentPage === 'children' || currentPage === 'references' || currentPage === 'confirmation'  }
     />
 
     <RegistrationProgessLine 
-        isChecked={ currentPage === 'children-num' || currentPage === 'references' || currentPage === 'confirmation'  }
+        isChecked={ currentPage === 'children-num' || currentPage === 'children' || currentPage === 'references' || currentPage === 'confirmation'  }
     />
 
     <RegistrationProgressItem 
         title="Children"
         href="/register/host-family/children-num"
-        isActive={ currentPage === 'children-num' }
+        isActive={ currentPage === 'children-num' || currentPage === 'children' }
         isChecked={ currentPage === 'references' || currentPage === 'confirmation' }
     />
 

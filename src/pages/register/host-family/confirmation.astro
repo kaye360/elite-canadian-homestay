@@ -156,17 +156,17 @@ const childrenNumData = getHostFamilyFormData('hf-form-children-num')
 const childrenContainer  = document.querySelector('#children-container')
 const numOfChildrenField = document.querySelector('#num-of-children')
 
-const numOfChildren = childrenNumData['num-of-children']
-numOfChildrenField?.insertAdjacentText('beforeend', numOfChildren)
+const numOfChildren = childrenNumData['num-of-children'] || 0
+numOfChildrenField?.insertAdjacentText('beforeend', numOfChildren.toString())
 
 for( let i=1; i<=Number(numOfChildren); i++ ) {
     const field = `
         <h3 class="col-span-2 font-semibold">Child ${i}</h3>
-        <span>Name</span> ${childrenData[`child-${i}-name`]}
-        <span>Gender</span> ${childrenData[`child-${i}-gender`]}
-        <span>Birthdate</span> ${childrenData[`child-${i}-birthdate`]}
-        <span>Interests</span> ${childrenData[`child-${i}-interests`]}
-        <span>Lives at home?</span> ${childrenData[`child-${i}-lives-at-home`] === "true" ? 'Yes' : 'No' }
+        <span>Name</span> <span>${childrenData[`child-${i}-name`] || ''}</span>
+        <span>Gender</span> <span>${childrenData[`child-${i}-gender`] || ''}</span>
+        <span>Birthdate</span> <span>${childrenData[`child-${i}-birthdate`] || ''}</span>
+        <span>Interests</span> <span>${childrenData[`child-${i}-interests`] || ''}</span>
+        <span>Lives at home?</span> <span>${childrenData[`child-${i}-lives-at-home`] === "true" ? 'Yes' : 'No' }</span>
     `
     childrenContainer?.insertAdjacentHTML('beforeend', field)
 }
