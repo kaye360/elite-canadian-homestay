@@ -31,9 +31,11 @@ import Icon from "../../../components/Base/Icon.astro";
 
 <script>
 import { clearHostFamilyFormData } from "../../../js/registerHostFamily";
-// clearHostFamilyFormData('hf-form-host-family')
-// clearHostFamilyFormData('hf-form-parents')
-// clearHostFamilyFormData('hf-form-children-num')
-// clearHostFamilyFormData('hf-form-children')
-// clearHostFamilyFormData('hf-form-references')
+if( import.meta.env.PROD ) {
+    clearHostFamilyFormData('hf-form-host-family')
+    clearHostFamilyFormData('hf-form-parents')
+    clearHostFamilyFormData('hf-form-children-num')
+    clearHostFamilyFormData('hf-form-children')
+    clearHostFamilyFormData('hf-form-references')
+}
 </script>
