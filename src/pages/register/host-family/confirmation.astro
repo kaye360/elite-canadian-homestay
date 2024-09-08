@@ -6,6 +6,7 @@ import RegistrationProgress from "../../../components/Registration/RegistrationP
 import RegistrationHeading from "../../../components/Registration/RegistrationHeading.astro";
 import Button from "../../../components/Base/Button.astro";
 import RegistrationConfirmationSection from "../../../components/Registration/RegistrationConfirmationSection.astro";
+import RegistrationHiddenInputs from "../../../components/Registration/RegistrationHiddenInputs.astro";
 ---
 
 <BaseLayout
@@ -31,6 +32,10 @@ import RegistrationConfirmationSection from "../../../components/Registration/Re
                 action="/register/host-family/success"
                 method="POST"
             >
+            <!-- <form 
+                id="host-family" 
+                class="grid gap-4" 
+            > -->
 
                 <input type="hidden" name="subject" value="Host family registration" />
             
@@ -122,8 +127,7 @@ import RegistrationConfirmationSection from "../../../components/Registration/Re
 
                 <div>
                     <div id="hidden-inputs">
-                        <input type="hidden" name="hf-last-name" value="Smith" />
-                        <input type="hidden" name="hf-pets" value="doggo and kitty" />
+                        <RegistrationHiddenInputs />
                     </div>
 
                     <Button 
@@ -212,23 +216,27 @@ const hostFamilyDataWithoutInterests = Object.fromEntries(
      Object.entries( hostFamilyData ).filter( item => !item[0].includes('interests') )
 )
 
-const hiddenInputsContainer = document.querySelector('#hidden-inputs')
 const inputs = {...hostFamilyDataWithoutInterests, ...hostFamilyInterests, ...childrenData, ... childrenNumData, ...parentsData, ...referencesData }
 
+const form = document.querySelector('#host-family') as HTMLFormElement
 for ( const prop in inputs) {
-    hiddenInputsContainer?.insertAdjacentHTML('beforeend', `
-        <input type="hidden" name="${prop}" value="${inputs[prop]}" >
-    `)
+    const hiddenInput = form.querySelector(`input[name=${prop}]`) as HTMLInputElement
+    if( hiddenInput ) {
+        hiddenInput.setAttribute('value', inputs[prop])
+    }
 }
+const hostFamilyInterestsHiddenInput = document.querySelector(`input[name=host-family-interests]`)
+hostFamilyInterestsHiddenInput?.setAttribute('value',  hostFamilyInterests['host-family-interests'])
 
-// Form
-// const form = document.querySelector('#host-family') as HTMLFormElement
-// form.addEventListener('submit', handleSubmit)
-
-// function handleSubmit(e: Event) {
-//     e.preventDefault()
-//     const data = Object.fromEntries( new FormData(form) )
-//     console.log(data)
-// }
-
+// Form Dev Testing
+if( import.meta.env.DEV ) {
+    form.addEventListener('submit', handleSubmit)
+    
+    function handleSubmit(e: Event) {
+        e.preventDefault()
+        const data = Object.fromEntries( new FormData(form) )
+        console.log(data)
+    }
+}
 </script>
+
