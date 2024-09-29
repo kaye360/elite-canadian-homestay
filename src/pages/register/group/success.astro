@@ -1,0 +1,38 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Base/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Icon from "../../../components/Base/Icon.astro";
+---
+
+<BaseLayout
+    title="Host Family Registration"
+    description="Register as a host family with Elite Canadian Homestay"
+>
+    <H1>
+        Group Registration
+    </H1>
+
+    <section>
+        <Wrapper width="max" >
+
+            <p class="flex items-start gap-2 mt-6">
+                <Icon icon="check_circle" class="translate-y-1" />
+                <span class="text-xl">
+                    Your group registration has been submitted successfully <br />
+                    <a href="/">Return to Home Page</a>
+                </span>
+            </p>
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+<script>
+import { clearGroupFormData } from "../../../js/registerGroup";
+
+if( import.meta.env.PROD ) {
+    clearGroupFormData()
+}
+</script>

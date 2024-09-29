@@ -1,0 +1,155 @@
+---
+import H1 from "../../../components/Heading/H1.astro";
+import Wrapper from "../../../components/Base/Wrapper.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Button from "../../../components/Base/Button.astro";
+import FormField from "../../../components/Forms/FormField.astro";
+import RegistrationNote from "../../../components/Registration/RegistrationNote.astro";
+---
+
+<BaseLayout
+    title="Group Registration"
+    description="Register as a group with Elite Canadian Homestay"
+>
+
+    <H1>
+        Group Registration
+    </H1>
+
+    <section>
+
+        <Wrapper width="max">
+
+            <form 
+                id="group-registration" 
+                class="grid gap-8 justify-start w-fit"
+                data-netlify="true"
+                name="Group Registration"
+                action="/register/group/success"
+                method="POST"
+            >
+
+                <p class="max-w-[70ch]">
+                    Thank you for your interest in working with us. Please complete intake form to register.
+                </p>
+
+                <RegistrationNote />
+    
+                <FormField
+                    type="text"
+                    name="company_name"
+                    label="Name of company"
+                    required
+                />
+                
+    
+                <FormField 
+                    type="textarea"
+                    name="Address"
+                    label="Address"
+                    required
+                />
+
+                <FormField 
+                    type="tel"
+                    name="phone"
+                    label="Phone number"
+                    required
+                />
+    
+                <FormField 
+                    type="email"
+                    name="email"
+                    label="Email address"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="person_name"
+                    label="Name of person"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="arrival_date"
+                    label="Arrival date"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="departure_date"
+                    label="Departure date"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="number_of_participants"
+                    label="Number of participants"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="age_of_participants"
+                    label="Age of participants"
+                    required
+                />
+    
+                <FormField 
+                    type="text"
+                    name="gender_of_participants"
+                    label="Gender of participants"
+                    required
+                />
+                
+                <div>
+                    <strong>
+                        Number of children per host family<br />
+                    </strong>
+                    <select name="placement" id="placement" class="w-[100px]">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+    
+                <FormField 
+                    type="textarea"
+                    name="special_requests"
+                    label="Special requests"
+                />
+
+                <div class="flex items-center gap-4">
+
+                    <Button type="reset" variant="plain-secondary">
+                        Reset
+                    </Button>
+
+                    <Button type="submit" variant="fill-secondary">
+                        Submit
+                    </Button>
+                </div>
+
+            </form>
+
+        </Wrapper>
+    </section>
+
+</BaseLayout>
+
+
+<script>
+import { autoSave, clearGroupFormData, getGroupFormData, populateFromFromLocalStorage } from "../../../js/registerGroup"
+
+const form = document.querySelector('#group-registration') as HTMLFormElement
+const data = getGroupFormData()
+
+form.addEventListener('reset', clearGroupFormData)
+
+autoSave({form})
+populateFromFromLocalStorage(data)
+</script>
