@@ -89,8 +89,8 @@ const Element = attrs.href ? 'a' : 'button'
     ]}
     {...attrs}
 >
-    {icon && <Icon icon={icon} /> }
     <slot />
+    {icon && <Icon icon={icon} /> }
 </Element>
 
 
@@ -113,7 +113,8 @@ const Element = attrs.href ? 'a' : 'button'
 .btn-outline-primary {
     --border-color : hsl( var(--primary-color) 60% ) !important;
     --border-hover-color : hsl( var(--primary-color) 20% ) !important;
-    --background-color : transparent !important;
+    --background-color : hsl( var(--primary-color) 95% ) !important;
+    --background-hover-color : hsl( var(--primary-color) 80% ) !important;
     --text-color : hsl( var(--primary-color) 30% ) !important;
 }
 
