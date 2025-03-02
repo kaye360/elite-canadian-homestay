@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/Heading/H1.astro"
+import Wrapper from "../components/Base/Wrapper.astro";
+import TextFlow from "../components/Base/TextFlow.astro";
+import H2 from "../components/Heading/H2.astro";
+import Button from "../components/Base/Button.astro";
+import Icon from "../components/Base/Icon.astro";
+import Image from "../components/Base/Image.astro";
+import EvenColumns from "../components/Base/EvenColumns.astro";
+---
+
+<BaseLayout props
+    lang="en"
+    title="Register as a homestay student or host"
+    description="Learn english as a second language as a student or sign up to become a Canadian homestay host in Vancouver"
+>
+
+    <Heading>
+        Register as a Student or Host Family
+    </Heading>
+
+    <section>
+
+        <Wrapper>
+
+            <div class="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1.5fr] gap-8 mb-8"> 
+
+                <div class="grid gap-4">
+
+                    <p class="max-w-[65ch]">
+                        Whether you're a student excited to begin a new adventure or a host family ready to open your doors to global connections, our registration process is simple and straightforward. Register using the forms below.
+                    </p>
+                
+                    <div>
+                        <H2 class="!my-6">Host family application</H2>
+                        <p class="mb-3">
+                            Register as a host family today by filling out and submitting our easy-to-use online form. By joining our program, you'll have the opportunity to welcome a guest into your home, share your culture, and create meaningful connections. Start the process today and make a difference in someone's life!
+                        </p>
+                        <Button 
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSe36a9N7rVqnPfUj3FzbSAu4H36Bwf8ZBf69Cp6NVRc2W23RQ/viewform?usp=sharing" 
+                            target="_blank"
+                            variant='outline-secondary' 
+                            class="py-3 no-underline"
+                        >
+                            <Icon icon="description" /> 
+                            Host Family Registration
+                        </Button>
+                    </div>
+
+                    <div>
+                        <H2 class="!my-6">Group application</H2>
+                        <p class="mb-3">
+                            Complete and submit the online intake form to receive a customized quote for your group application. Get started today to explore your options and receive customized pricing.
+                        </p>
+                        <Button 
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSeQptddlrJjtaKFlP8x2B5nsUnzeM0Lf_M5dLQKwfEQ17rL1A/viewform?usp=sharing" 
+                            target="_blank"
+                            variant='outline-secondary' 
+                            class="py-3 no-underline"
+                        >
+                            <Icon icon="description" /> 
+                            Group Registration
+                        </Button>
+                    </div>
+                </div>
+
+                <Image
+                    src="/img/students-11.webp"
+                    alt="ESL homestay students in front of a Canadian flag"
+                    class="h-full object-cover"
+                    width={500}
+                    height={515}
+                />
+
+            </div>
+
+        </Wrapper>
+
+    </section>
+
+</BaseLayout>
