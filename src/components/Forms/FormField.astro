@@ -74,7 +74,7 @@ const isInputTextType = inputTextTypes.includes(type)
 
     { type ===  'textarea' ? (
 
-        <textarea name={name.toLowerCase()} id={name.toLowerCase()} />
+        <textarea name={name.toLowerCase()} id={name.toLowerCase()} required={required} />
 
     ) : type === 'select' ? (
 

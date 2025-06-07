@@ -2,12 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Heading from "../components/Heading/H1.astro"
 import Wrapper from "../components/Base/Wrapper.astro";
-import TextFlow from "../components/Base/TextFlow.astro";
 import H2 from "../components/Heading/H2.astro";
 import Button from "../components/Base/Button.astro";
 import Icon from "../components/Base/Icon.astro";
 import Image from "../components/Base/Image.astro";
-import EvenColumns from "../components/Base/EvenColumns.astro";
 ---
 
 <BaseLayout props
@@ -22,9 +20,9 @@ import EvenColumns from "../components/Base/EvenColumns.astro";
 
     <section>
 
-        <Wrapper>
+        <Wrapper width="max">
 
-            <div class="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1.5fr] gap-8 mb-8"> 
+            <div class="grid items-start sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1.5fr] gap-8 mb-8"> 
 
                 <div class="grid gap-4">
 
@@ -66,7 +64,7 @@ import EvenColumns from "../components/Base/EvenColumns.astro";
                 </div>
 
                 <Image
-                    src="/img/students-11.webp"
+                    src="/img/vancouver-1.webp"
                     alt="ESL homestay students in front of a Canadian flag"
                     class="h-full object-cover"
                     width={500}
