@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/Heading/H1.astro"
+import Wrapper from "../components/Base/Wrapper.astro";
+import TextFlow from "../components/Base/TextFlow.astro";
+import H2 from "../components/Heading/H2.astro";
+import Button from "../components/Base/Button.astro";
+import Icon from "../components/Base/Icon.astro";
+import Image from "../components/Base/Image.astro";
+import { EMAIL_ADDRESS } from "../config";
+---
+
+<BaseLayout props
+    lang="en"
+    title="Register as a homestay student or host"
+    description="Learn english as a second language as a student or sign up to become a Canadian homestay host in Vancouver"
+>
+
+    <Heading>
+        Register as a Student or Host Family
+    </Heading>
+
+    <section>
+
+        <Wrapper width="text">
+
+            <TextFlow>
+                
+                <p>
+                    Whether you're a student eager to embark on a transformative journey or a host family ready to open your doors to global connections, our registration process is simple and straightforward. Simply follow the instructions below.
+                </p>
+
+            </TextFlow>
+
+
+            <H2 class="!my-6">Student application</H2>
+
+            <p class="mb-3">
+                Please download the student application and email it to
+                <a href={'mailto:Nmkelitehomestay@gmail.com'}>
+                    Nmkelitehomestay@gmail.com
+                </a>
+            </p>
+
+            <Button 
+                href="/docs/student-application-2024.pdf" 
+                download="student-application-2024" 
+                variant='outline-secondary' 
+                class="py-6 no-underline hover:bg-secondary-900 mb-6"
+            >
+                <Icon icon="download" /> 
+                Student Application (36kb PDF)
+            </Button>
+
+            <H2 class="!my-6">Host family application</H2>
+
+            <p class="mb-3">
+                Register as a host family by submitting the online form
+            </p>
+
+            <Button 
+                href="/docs/host-family-application-2024.pdf" 
+                download="host-family-application-2024" 
+                variant='outline-secondary' 
+                class="py-6 no-underline hover:bg-secondary-900 mb-16"
+            >
+                <Icon icon="download" /> 
+                Host Family Application (304kb PDF)
+            </Button>
+
+            <!-- <Button 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe36a9N7rVqnPfUj3FzbSAu4H36Bwf8ZBf69Cp6NVRc2W23RQ/viewform?usp=sharing" 
+                target="_blank"
+                variant='outline-secondary' 
+                class="py-3 no-underline hover:bg-secondary-900 mb-16 !bg-transparent"
+            >
+                <Icon icon="link" /> 
+                Host Family Registration
+            </Button> -->
+
+            <!-- <H2 class="!my-6">Group application</H2>
+
+            <p class="mb-3">
+                Complete the intake form to get a quote for a group application
+            </p>
+
+            <Button 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeQptddlrJjtaKFlP8x2B5nsUnzeM0Lf_M5dLQKwfEQ17rL1A/viewform?usp=sharing" 
+                target="_blank"
+                variant='outline-secondary' 
+                class="py-3 no-underline hover:bg-secondary-900 mb-16"
+            >
+                <Icon icon="link" /> 
+                Group Registration
+            </Button> -->
+
+
+
+            <Image
+                src="/img/students-11.webp"
+                alt="ESL students in front of a Canadian flag"
+                width={800}
+                height={600}
+                
+            />
+
+
+        </Wrapper>
+
+    </section>
+
+</BaseLayout>
