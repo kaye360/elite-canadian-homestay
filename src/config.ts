@@ -19,9 +19,9 @@ export const SITE_SHORT_NAME = 'Elite Canadian Homestay'
 
 export const LOGO_NAME = SITE_SHORT_NAME
 
-export const PHONE_NUMBER = '604-617-1200'
+export const PHONE_NUMBER = '604-760-3968'
 
-export const EMAIL_ADDRESS = 'lkelitehomestay@gmail.com'
+export const EMAIL_ADDRESS = 'nmkelitehomestay@gmail.com'
 
 export const LOCATION = 'Langley, BC'
 
